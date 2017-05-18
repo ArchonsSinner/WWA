@@ -79,20 +79,10 @@ public class WekaClusterer {
 							}
 						}
 					}
-
-					// ins.value(j)
 				}
-				// System.out.println("hafuodfkadg"+countPerRow);
-				// System.out.println("Instance " + i );
-				// System.out.println(ins);
+				
 			}
 
-			for (int i = 0; i < clusters.length; i++) {
-				System.out.println(clusters[i].getPurchasesPerItemgroup());
-				for (int j = 0; j < 7; j++) {
-					System.out.println(clusters[i].getPurchasesPerDay()[j]);
-				}
-			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {

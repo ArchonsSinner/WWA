@@ -37,14 +37,12 @@ public class DiagramCreator {
 		for(String s:cluster.getPurchasesPerItemgroup().keySet()){
 			
 			d=cluster.getPurchasesPerItemgroup().get(s);
-			System.out.println(d);
 			d/=cluster.getSize();
 			d=d*100;
 			int x = (int)d;
-			System.out.println(x);
 			myDataset.addValue(x, "1" ,s);
 		}
-		JFreeChart myBarChart1 = ChartFactory.createBarChart("meinTitel", "Cluster Nr", "Anz Pers", myDataset);
+		JFreeChart myBarChart1 = ChartFactory.createBarChart("Anteil der Käufe der Warengruppen\n"+cluster.getIndex(), "Cluster Nr", "Anz Pers", myDataset);
 		
 		try {
 			saveChartToJPG(myBarChart1, "C:/Users/lasse/workspace/SPM/data/myBarChart"+cluster.getIndex(), 800, 600);
@@ -63,7 +61,7 @@ public class DiagramCreator {
 			myDataset.setValue( weekdays[i],d);
 		}
 		
-		JFreeChart myPieChart = ChartFactory.createPieChart("Einkäufe pro Wochentag", myDataset);
+		JFreeChart myPieChart = ChartFactory.createPieChart("Einkäufe pro Wochentag\n Cluster "+cluster.getIndex(), myDataset);
 		
 		try {
 			saveChartToJPG(myPieChart, "C:/Users/lasse/workspace/SPM/data/myPieChart"+cluster.getIndex(), 800, 600);
