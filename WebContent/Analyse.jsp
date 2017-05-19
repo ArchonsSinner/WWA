@@ -18,7 +18,7 @@
 	Cluster[] clusters =WekaClusterer.clustering(path);
 	String[] chartsFilenames=DiagramCreator.masterCreate(clusters); %>
 	
-	<a href="">Gesamt</a>
+	<a href="Analyse.jsp">Gesamt</a>
 	<% for(int i=0;i<clusters.length;i++){
 		if(i==activeCluster){%>
 			<b>Cluster <%= clusters[i].getIndex() %></b>
