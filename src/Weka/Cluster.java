@@ -21,6 +21,10 @@ public class Cluster {
 		this.index=++count;
 	}
 	
+
+	public static void resetCount(){
+		count = 0;
+	}
 	public int getIndex() {
 		return index;
 	}

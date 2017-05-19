@@ -19,9 +19,9 @@ import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 
 public class DiagramCreator {
 
-	private static String path = "C:/Users/lenna/git/WWA/data/charts/";
-	private static int width=800;
-	private static int height=600;
+	private static String path = "C:/Users/lenna/Desktop/charts/";
+	private static int width=600;
+	private static int height=500;
 	private static int widthBig=800;
 	private static int heightBig=600;
 
@@ -29,7 +29,9 @@ public class DiagramCreator {
 
 		DefaultCategoryDataset myDataset = new DefaultCategoryDataset();
 		double d;
+		System.out.println("size=" + clusters.length);
 		for (int i = 0; i < clusters.length; i++) {
+			System.out.println("i= "+i);
 			d = clusters[i].getSize();
 			myDataset.addValue(d, "1", Integer.toString(i + 1));
 		}

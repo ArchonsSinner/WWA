@@ -1,6 +1,8 @@
 package Weka;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -29,13 +31,26 @@ public class WekaClusterer {
 			loader.setSource(new File(csvDat));
 			Instances data = loader.getDataSet();
 
-			ArffSaver saver = new ArffSaver();
-			saver.setInstances(data);
-			saver.setFile(new File(arffDat));
-			saver.writeBatch();
+			
+			
+			
+
+		    // save ARFF
+		    BufferedWriter writer = new BufferedWriter(new FileWriter(arffDat));
+		    writer.write(data.toString());
+		    writer.flush();
+		    writer.close(); 
+		
+			
+//			ArffSaver saver = new ArffSaver();
+//			saver.setInstances(data);
+//			saver.setFile(new File(arffDat));
+//			saver.writeBatch();
+			
 			DataSource source = new DataSource(arffDat);
 
 			data = source.getDataSet();
+			new File(arffDat).delete();
 			model.setNumClusters(ClusterCount);
 			model.buildClusterer(data);
 
@@ -81,8 +96,11 @@ public class WekaClusterer {
 			}
 
 		} catch (IOException e) {
+			e.printStackTrace();
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		Cluster.resetCount();
 		return clusters;
 	}
 
@@ -94,7 +112,10 @@ public class WekaClusterer {
 			if (!ins.attribute(j).isNumeric())
 				value = ins.stringValue(j);
 			else
-				value = Double.toString(ins.value(j));
+				if (Double.toString(ins.value(j)).length()>4)
+					value = Double.toString(ins.value(j)).substring(0, 3);
+				else
+					value = Double.toString(ins.value(j));
 			c.getValues().put(key, value);
 
 		}
