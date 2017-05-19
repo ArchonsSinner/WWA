@@ -1,7 +1,6 @@
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import weka.clusterers.SimpleKMeans;
@@ -54,8 +53,6 @@ public class WekaClusterer {
 			for (int i = 0; i < data.numInstances(); i++) {
 				Instance ins = data.instance(i);
 				int clusterNR = model.clusterInstance(ins);
-				// System.out.println("Data is in Cluster " + clusterNR);
-				int countPerRow = 0;
 				for (int iAtt = 0; iAtt < data.numAttributes(); iAtt++) {
 					Attribute att = ins.attribute(iAtt);
 
@@ -67,26 +64,23 @@ public class WekaClusterer {
 						}
 					}
 					if (att.isNumeric()) {
-						if(!att.name().equals("Einkaufssumme")){
+						if (!att.name().equals("Einkaufssumme")) {
 							if (ins.value(att) > 0) {
 								HashMap<String, Integer> map = clusters[clusterNR].getPurchasesPerItemgroup();
 								if (map.containsKey(att.name())) {
 									map.put(att.name(), map.get(att.name()).intValue() + 1);
 								} else {
-									
+
 									clusters[clusterNR].getPurchasesPerItemgroup().put(att.name(), 1);
 								}
 							}
 						}
 					}
 				}
-				
 			}
 
 		} catch (IOException e) {
-			e.printStackTrace();
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		return clusters;
 	}
