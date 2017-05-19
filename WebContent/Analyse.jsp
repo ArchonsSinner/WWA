@@ -16,7 +16,8 @@
 		int activeCluster = 0;
 		if (request.getParameter("activeCluster")!=null)
 			activeCluster = Integer.parseInt(request.getParameter("activeCluster"));
-		
+		if (request.getParameter("Clusteranzahl")!=null)
+			Clusteranzahl = Integer.parseInt(request.getParameter("Clusteranzahl"));
 		WekaClusterer.setNumClusters(Clusteranzahl);
 		Cluster[] clusters = WekaClusterer.clustering(path);
 		String[] chartsFilenames = DiagramCreator.masterCreate(clusters);
