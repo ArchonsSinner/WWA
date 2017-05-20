@@ -11,16 +11,12 @@
 
 
 	<%
-		int Clusteranzahl = 5;
-		String path = "C:/Users/lenna/Desktop/eclipse/";
+		Cluster[] clusters = (Cluster[])request.getSession().getAttribute("clusters");
+		String[] chartsFilenames = (String[])request.getSession().getAttribute("charts");
+
 		int activeCluster = 0;
 		if (request.getParameter("activeCluster")!=null)
 			activeCluster = Integer.parseInt(request.getParameter("activeCluster"));
-		if (request.getParameter("Clusteranzahl")!=null)
-			Clusteranzahl = Integer.parseInt(request.getParameter("Clusteranzahl"));
-		WekaClusterer.setNumClusters(Clusteranzahl);
-		Cluster[] clusters = WekaClusterer.clustering(path);
-		String[] chartsFilenames = DiagramCreator.masterCreate(clusters);
 		if (activeCluster> clusters.length)
 			activeCluster = 0;
 		String[] attributeNames = clusters[0].getValues().keySet().toArray(new String[0]);

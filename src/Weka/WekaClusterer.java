@@ -46,7 +46,6 @@ public class WekaClusterer {
 //			saver.setInstances(data);
 //			saver.setFile(new File(arffDat));
 //			saver.writeBatch();
-			
 			DataSource source = new DataSource(arffDat);
 
 			data = source.getDataSet();
@@ -96,9 +95,7 @@ public class WekaClusterer {
 			}
 
 		} catch (IOException e) {
-			e.printStackTrace();
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		Cluster.resetCount();
 		return clusters;

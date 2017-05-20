@@ -29,9 +29,7 @@ public class DiagramCreator {
 
 		DefaultCategoryDataset myDataset = new DefaultCategoryDataset();
 		double d;
-		System.out.println("size=" + clusters.length);
 		for (int i = 0; i < clusters.length; i++) {
-			System.out.println("i= "+i);
 			d = clusters[i].getSize();
 			myDataset.addValue(d, "1", Integer.toString(i + 1));
 		}
