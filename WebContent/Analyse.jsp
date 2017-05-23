@@ -11,6 +11,11 @@
 
 
 	<%
+	//Hier kommt der wunderbare Login und der schaut wie folgt aus: Da kann nix schiefgehen
+		//if(session.getAttribute("username") == null || session.getAttribute("username") == ""){
+			//response.sendRedirect("Login.jsp");
+		//}
+	
 		Cluster[] clusters = (Cluster[])request.getSession().getAttribute("clusters");
 		String[] chartsFilenames = (String[])request.getSession().getAttribute("charts");
 
