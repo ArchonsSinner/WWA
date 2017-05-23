@@ -29,9 +29,7 @@ public class WekaClusterer {
 
 		try {
 			loader.setSource(new File(csvDat));
-			Instances data = loader.getDataSet();
-
-			
+			Instances data = loader.getDataSet();	
 			
 			
 

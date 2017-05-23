@@ -38,6 +38,8 @@ public class StartAnalysisServlet extends HttpServlet {
 		
 		//Clusteranzahl
 		int Clusteranzahl = 5;
+		//Clusteranzahl  wird beim aufrufen als Parameter angegeben
+		//wenn nicht  dann standardwert 5
 		if (request.getParameter("Clusteranzahl")!=null)
 			Clusteranzahl = Integer.parseInt(request.getParameter("Clusteranzahl"));
 		HttpSession session = request.getSession();
@@ -45,7 +47,8 @@ public class StartAnalysisServlet extends HttpServlet {
 		Cluster[] clusters;
 		String[] chartsFilenames;
 		if(session.getAttribute("clusters")==null){
-			//Pfad
+			//Pfad für die CSV Datei
+			//Pfad muss beim Aufrufen des Servlets aus Parameter gesetzt sein an den path wird "kd.csv" rangehängt 
 			String path=request.getParameter("path");
 			if(path==null){
 				System.out.println("Error:No filelocation given!");

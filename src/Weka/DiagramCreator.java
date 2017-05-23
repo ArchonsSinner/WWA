@@ -18,8 +18,9 @@ import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 
 
 public class DiagramCreator {
-
-	private static String path = "C:/Users/lenna/Desktop/charts/";
+	//Pfad für die charts muss noch angepasst werden
+	//
+	private static String path = "C:/Users/Admin/workspace/data/charts/";
 	private static int width=600;
 	private static int height=500;
 	private static int widthBig=800;
