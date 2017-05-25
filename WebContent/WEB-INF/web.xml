@@ -10,4 +10,23 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DataControl</servlet-name>
+        <servlet-class>DataControl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataControl</servlet-name>
+        <url-pattern>/DataControl</url-pattern>
+    </servlet-mapping>
+  
 </web-app>
