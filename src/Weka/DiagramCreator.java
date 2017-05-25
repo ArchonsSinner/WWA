@@ -18,8 +18,9 @@ import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 
 
 public class DiagramCreator {
-	//Pfad für die charts muss noch angepasst werden
+	//Pfad fï¿½r die charts muss noch angepasst werden
 	//
+	String folderPath = System.getProperty("user.dir") + File.separator + "WWA" + File.separator + "data" + File.separator + "charts" + File.separator;
 	private static String path = "C:/Users/Admin/workspace/data/charts/";
 	private static int width=600;
 	private static int height=500;
@@ -34,7 +35,7 @@ public class DiagramCreator {
 			d = clusters[i].getSize();
 			myDataset.addValue(d, "1", Integer.toString(i + 1));
 		}
-		JFreeChart myBarChart = ChartFactory.createBarChart("Clustergröße", "Cluster Nr", "Anz Pers", myDataset,PlotOrientation.VERTICAL,false,true,false);
+		JFreeChart myBarChart = ChartFactory.createBarChart("Clustergrï¿½ï¿½e", "Cluster Nr", "Anz Pers", myDataset,PlotOrientation.VERTICAL,false,true,false);
 		CategoryPlot plot=(CategoryPlot)myBarChart.getPlot();
 		BarRenderer renderer = (BarRenderer) plot.getRenderer();
         renderer.setBaseItemLabelsVisible(true);
@@ -72,8 +73,8 @@ public class DiagramCreator {
 			int x = (int) d;
 			myDataset.addValue(x, "1", s);
 		}
-		JFreeChart myBarChart1 = ChartFactory.createBarChart("Anteil der Käufe der Warengruppen\nCluster " + cluster.getIndex()+" ("+cluster.getSize()+")",
-				"Warengruppe", "Anteil Käufe in %", myDataset,PlotOrientation.VERTICAL,false,true,false);
+		JFreeChart myBarChart1 = ChartFactory.createBarChart("Anteil der Kï¿½ufe der Warengruppen\nCluster " + cluster.getIndex()+" ("+cluster.getSize()+")",
+				"Warengruppe", "Anteil Kï¿½ufe in %", myDataset,PlotOrientation.VERTICAL,false,true,false);
 		
 		CategoryPlot plot=(CategoryPlot)myBarChart1.getPlot();
 		BarRenderer renderer = (BarRenderer) plot.getRenderer();
@@ -107,7 +108,7 @@ public class DiagramCreator {
 			myDataset.setValue(weekdays[i], d);
 		}
 
-		JFreeChart myPieChart = ChartFactory.createPieChart("Einkäufe pro Wochentag\nCluster " + cluster.getIndex()+" ("+cluster.getSize()+")",
+		JFreeChart myPieChart = ChartFactory.createPieChart("Einkï¿½ufe pro Wochentag\nCluster " + cluster.getIndex()+" ("+cluster.getSize()+")",
 				myDataset);
 		PiePlot plot=(PiePlot)myPieChart.getPlot();
 		PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(

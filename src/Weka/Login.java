@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
 				// anderen Seiten geprüft werden ob der User eine passende
 				// Session hat
 				session.setAttribute("username", uname);
-				response.sendRedirect("StartAnalysisServlet");
+				response.sendRedirect("FileUpload.jsp");
 			} else
 				response.sendRedirect("Login.jsp");
 		} catch (NullPointerException e) {
