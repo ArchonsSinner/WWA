@@ -22,12 +22,14 @@ public class DataControl extends HttpServlet{
     private static final long serialVersionUID = 1L;
 
     // location to store file uploaded
-    private static final String UPLOAD_DIRECTORY = "/";
+    private static final String UPLOAD_DIRECTORY = "/CSV";
 
     // upload settings
     private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB
     private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB
     private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
+
+    private static final String uploadPath = System.getProperty("user.dir") + File.separator + "WWA" + File.separator + "uploads";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -56,10 +58,6 @@ public class DataControl extends HttpServlet{
         // sets maximum size of request (include file + form data)
         upload.setSizeMax(MAX_REQUEST_SIZE);
 
-        // constructs the directory path to store upload file
-        // this path is relative to application's directory
-        String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
-
         // creates the directory if it does not exist
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
@@ -81,7 +79,9 @@ public class DataControl extends HttpServlet{
                         File storeFile = new File(filePath);
 
                         // saves the file on disk
-                        item.write(storeFile);
+                        if(fileName.equals("*.csv")) {
+                            item.write(storeFile);
+                        }
                     }
                 }
             }
@@ -93,6 +93,7 @@ public class DataControl extends HttpServlet{
             *
             * */
         }
+        response.sendRedirect("DataControl");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -113,6 +114,19 @@ public class DataControl extends HttpServlet{
                 "</tr>" +
                 "</table>");
 
+        //Set directory to search files
+        File path = new File(uploadPath);
+        File[] fileArray = path.listFiles();
 
+        out.println("<table>");
+        for (File f: fileArray
+             ) {
+            String name = f.getName();
+            if(name.equals("*.csv")){
+                //TBD create Link etc to display analysis for each file
+                out.println("<tr><td>" + f.getName() + "</td></tr>");
+            }
+        }
+        out.println("</table>");
     }
 }
