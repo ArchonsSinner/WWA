@@ -1,64 +1,65 @@
-package Weka;
-
-import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
 
 /**
- * Servlet implementation class Login
+ * Created by florian on 23.05.17.
  */
-@WebServlet(description = "Servlet zu Überpüfung der Logindaten", urlPatterns = { "/Login" })
 public class Login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    //Test Input data
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public Login() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+        Enumeration paramNames = request.getParameterNames();
+        String[] paramArray = request.getParameterValues((String) paramNames.nextElement());
+        String username = paramArray[0];
+        paramArray = request.getParameterValues((String) paramNames.nextElement());
+        String password = paramArray[0];
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+        if(username.equals("KD") && password.equals("kaufdort")){
+            //Login succeeded
+            HttpSession session = request.getSession();
+            session.setAttribute("Login",(Integer)1);
+            response.sendRedirect("DataControl");
+        } else {
+            //Login failed - redirect to login page
+            response.sendRedirect("Login?fail=1");
+        }
+    }
 
-		// To Do Input prüfen und hashen
-		try {
-			String uname = request.getParameter("uname");
-			String password = request.getParameter("password");
+    //Generate Login screen
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        String prefail = request.getParameter("fail");
 
-			// To Do username und password nicht hartcoden sondern vernünftig
-			// abspeichern mit hash und so
-			if (uname.equals("admin") && password.equals("password")) {
-				HttpSession session = request.getSession();
-				// Info Benutzername wird in session gespeichert. So kann auf
-				// anderen Seiten geprüft werden ob der User eine passende
-				// Session hat
-				session.setAttribute("username", uname);
-				response.sendRedirect("FileUpload.jsp");
-			} else
-				response.sendRedirect("Login.jsp");
-		} catch (NullPointerException e) {
-			response.sendRedirect("Login.jsp");
-		}
-	}
+        out.println("<head><link rel='stylesheet' type='text/css' href='" + request.getContextPath() + "/bulma.css'/>" +
+                "<title>Weka Web App</title></head>");
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+        out.println(
+                "<div class='block'>" +
+                "<table align='center'>" +
+                "       <form method='post' action='Login' align='center'>" +
+                "           <tr><td><input type='text' name='username' placeholder='Benutzername'></td></tr>" +
+                "           <tr><td><input type='password' name='password' placeholder='Passwort'></td></tr>" +
+                "           <tr><td><input type='submit' value='Anmelden' align='center'></td></tr>" +
+                "       </form>" +
+                "</table>" +
+                "</div>");
 
+        if(prefail.equals("1")){
+            out.println("<article class='message is-danger'>" +
+                    "  <div class='message-header'>" +
+                    "    <p>Benutzername oder Passwort falsch</p>" +
+                    "  </div>" +
+                    "</article>");
+        }
+
+    }
 }
