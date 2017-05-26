@@ -23,7 +23,7 @@ public class WekaClusterer {
 
 		Cluster[] clusters = new Cluster[ClusterCount];
 		String path = path1;
-		String csvDat = path + "kd.csv";
+		String csvDat = path;// + "kd.csv"; Wurde rausgenommen, damit der Pfad + Dateinamen direkt übergeben werden kann. Weil ansonsten würde er nur den Pfad nehmen und die Datei müsste im Forfeld richtig beannt sein.
 		String arffDat = path + "kd.arff";
 		CSVLoader loader = new CSVLoader();
 

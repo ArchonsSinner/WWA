@@ -1,6 +1,9 @@
 package Weka;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,6 +31,20 @@ public class StartAnalysisServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
+        if (session.getAttribute("uname")==null){
+            response.sendRedirect("Login");
+        }
+
+        out.println("<table align='left'>" +
+                "<tr>" +
+                "   <form action = 'StartAnalysis' method = 'post'>" +
+                "       <td><input type = 'submit' value = 'Upload File' /></td" +
+                "   </form>" +
+                "</tr>" +
+                "</table>");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -42,24 +59,36 @@ public class StartAnalysisServlet extends HttpServlet {
 		//wenn nicht  dann standardwert 5
 		if (request.getParameter("Clusteranzahl")!=null)
 			Clusteranzahl = Integer.parseInt(request.getParameter("Clusteranzahl"));
+		
 		HttpSession session = request.getSession();
+		if(session.getAttribute("uname") == null)
+			response.sendRedirect("Login");
+		
+		if(session.getAttribute("file") == null)
+			response.sendRedirect("DataControl");
 		
 		Cluster[] clusters;
 		String[] chartsFilenames;
 		if(session.getAttribute("clusters")==null){
-			//Pfad für die CSV Datei
-			//Pfad muss beim Aufrufen des Servlets aus Parameter gesetzt sein an den path wird "kd.csv" rangehängt 
-			String path=request.getParameter("path");
+			//Pfad fï¿½r die CSV Datei
+			//Pfad muss beim Aufrufen des Servlets aus Parameter gesetzt sein an den path wird "kd.csv" rangehï¿½ngt 
+			String path = session.getAttribute("file").toString();
 			if(path==null){
 				System.out.println("Error:No filelocation given!");
 				//TODO  Fehlerseite?????
 			}
 			//Weka
+			if(new File(path).exists()){
 			WekaClusterer.setNumClusters(Clusteranzahl);
 			clusters = WekaClusterer.clustering(path);
 			chartsFilenames = DiagramCreator.masterCreate(clusters);
 			session.setAttribute("clusters", clusters);
 			session.setAttribute("charts",chartsFilenames );
+			}
+			else
+			{
+				//Datei existiert nicht und es muss ein Fehler ausgegeben werden
+			}
 		}else{
 			clusters = (Cluster[]) session.getAttribute("clusters");
 			chartsFilenames = (String[]) session.getAttribute("charts");

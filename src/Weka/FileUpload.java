@@ -40,6 +40,7 @@ public class FileUpload extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.sendRedirect("FileUpload.jsp");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -49,15 +50,13 @@ public class FileUpload extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+		//doGet(request, response);
 
 		// Es soll geprüft werden, ob die verwendeten Ordner auf dem Server
 		// vorhanden sind und wenn icht sollen diese angelegt werden. Dies wird
 		// benötigt, damit später die Datei vernünftig hochgeladen werden kann.
 
 		File folder = new File(folderPath);
-		Long currentTimelong = System.currentTimeMillis();
-		String currentTime = currentTimelong.toString();
 		String date = new Date().toString();
 
 		if (!folder.exists()) {
@@ -65,7 +64,7 @@ public class FileUpload extends HttpServlet {
 		} else {
 			File[] files = folder.listFiles();
 			//Da nur numberofFiles Dateien aufbewart werden (zum jetzigen Zeitpunkt 5) muss überprüft werden wie viele Dateien vorhanden sind und ggf. die letzte gelöscht werden.
-			if (files.length >= numberofFiles) {
+			while (files.length >= numberofFiles) {
 				File oldestFile = files[0];
 
 				for (int i = 1; i < files.length; i++) {
@@ -85,7 +84,7 @@ public class FileUpload extends HttpServlet {
 				// Schreibt den Dateinamen neu für den Fall, dass der Dateiname
 				// einen Pfad enthält.
 				fileName = new File(fileName).getName();
-				part.write(folderPath + File.separator + date + currentTime + fileName);
+				part.write(folderPath + File.separator + date + fileName);
 			}
 		}
 	}
