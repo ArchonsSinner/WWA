@@ -20,8 +20,8 @@ import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 public class DiagramCreator {
 	//Pfad fï¿½r die charts muss noch angepasst werden
 	//
-	String folderPath = System.getProperty("user.dir") + File.separator + "WWA" + File.separator + "data" + File.separator + "charts" + File.separator;
-	private static String path = "C:/Users/Admin/workspace/data/charts/";
+	private static String path = System.getProperty("user.dir") + File.separator + "WWA" + File.separator + "data" + File.separator + "charts" + File.separator;
+//	private static String path = "C:/Users/Admin/workspace/data/charts/";
 	private static int width=600;
 	private static int height=500;
 	private static int widthBig=800;
@@ -144,6 +144,10 @@ public class DiagramCreator {
 	}
 
 	public static String[] masterCreate(Cluster[] clusters) {
+		//Pfad überprüfen und ggfs erstellen
+		File file = new File(path);
+		if(!file.exists())
+			file.mkdirs();
 		int chartCount=(clusters.length*2)+1;
 		String[] fileList = new String[chartCount];
 		fileList[0]=DiagramCreator.createClusterSizeBarChart(clusters);

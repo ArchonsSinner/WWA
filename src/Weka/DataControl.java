@@ -73,7 +73,7 @@ public class DataControl extends HttpServlet{
 				// Schreibt den Dateinamen neu für den Fall, dass der Dateiname
 				// einen Pfad enthält.
 				fileName = new File(fileName).getName();
-				String fullName = uploadDir + File.separator + new Date().toString() + fileName;
+				String fullName = uploadDir + File.separator + new Date().toString().replaceAll(":", "_") + fileName;
 				part.write(fullName);
 				session.setAttribute("file", fullName);
 			}
@@ -136,7 +136,15 @@ public class DataControl extends HttpServlet{
         }
 
         out.println("<table align='left'>" +
-                "<tr>" +
+                "<tr>") ;
+        
+        if(request.getParameter("fileError")!=null){
+        	out.println("<td><font color = RED>Datei ist fehlerhaft</font></td>"
+        			+ "</tr>"
+        			+ "<tr>");
+        	request.removeAttribute("fileError");
+        }
+        out.println(
                 "   <form action = 'DataControl' method = 'post' enctype = 'multipart/form-data'>" +
                 "       <td><input type = 'file' name = 'file' size = '50' /></td>" +
                 "           </tr><tr>" +
@@ -145,9 +153,24 @@ public class DataControl extends HttpServlet{
                 "</tr>" +
                 "</table>");
 
+       
+        
+        
+        
         //Set directory to search files
-
+           
+        
         File path = new File(uploadPath);
+        
+        
+        //Abfrage ob Ordner vorhanden ist
+    
+        if(!path.exists())
+        	path.mkdirs();
+        
+        
+        
+        
         File[] fileArray = path.listFiles();
 
         out.println("<table>");

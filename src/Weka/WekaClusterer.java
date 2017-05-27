@@ -19,7 +19,7 @@ public class WekaClusterer {
 	private static int ClusterCount = 1;
 	private static SimpleKMeans model = new SimpleKMeans();
 
-	public static Cluster[] clustering(String path1) {
+	public static Cluster[] clustering(String path1) throws Exception {
 
 		Cluster[] clusters = new Cluster[ClusterCount];
 		String path = path1;
@@ -27,10 +27,9 @@ public class WekaClusterer {
 		String arffDat = path + "kd.arff";
 		CSVLoader loader = new CSVLoader();
 
-		try {
+		
 			loader.setSource(new File(csvDat));
-			Instances data = loader.getDataSet();	
-			
+			Instances data = loader.getDataSet();		
 			
 
 		    // save ARFF
@@ -92,9 +91,7 @@ public class WekaClusterer {
 				}
 			}
 
-		} catch (IOException e) {
-		} catch (Exception e) {
-		}
+		
 		Cluster.resetCount();
 		return clusters;
 	}
@@ -122,12 +119,4 @@ public class WekaClusterer {
 	public static void setNumClusters(int n) {
 		ClusterCount = n;
 	}
-	
-	
-
-	public static void main(String[] args) {
-		WekaClusterer.setNumClusters(5);
-		DiagramCreator.masterCreate(WekaClusterer.clustering("C:/Users/lenna/Desktop/eclipse/"));
-	}
-
 }

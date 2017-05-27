@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.management.relation.RelationSupportMBean;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +42,19 @@ public class StartAnalysisServlet extends HttpServlet {
         out.println("<table align='left'>" +
                 "<tr>" +
                 "   <form action = 'StartAnalysis' method = 'post'>" +
-                "       <td><input type = 'submit' value = 'Upload File' /></td" +
+                "		<td><select name=\"Clusteranzahl\">" +
+                "			<option value=\"1\" selected>1</option>"+
+                "			<option value=\"2\">2</option>" +
+                "			<option value=\"3\">3</option>"+
+                "			<option value=\"4\">4</option>"+
+                "			<option value=\"5\">5</option>"+
+                "			<option value=\"6\">6</option>"+
+                "			<option value=\"7\">7</option>"+
+                "			<option value=\"8\">8</option>"+
+                "			<option value=\"9\">9</option>"+
+                "			<option value=\"10\">10</option>"+
+                "			</select> </td>" +
+                "       <td><input type = 'submit' value = 'Analyse Starten' /></td" +
                 "   </form>" +
                 "</tr>" +
                 "</table>");
@@ -74,20 +87,26 @@ public class StartAnalysisServlet extends HttpServlet {
 			//Pfad muss beim Aufrufen des Servlets aus Parameter gesetzt sein an den path wird "kd.csv" rangeh�ngt 
 			String path = session.getAttribute("file").toString();
 			if(path==null){
-				System.out.println("Error:No filelocation given!");
-				//TODO  Fehlerseite?????
+				response.sendRedirect("DataControl");
+				return;
 			}
 			//Weka
 			if(new File(path).exists()){
-			WekaClusterer.setNumClusters(Clusteranzahl);
-			clusters = WekaClusterer.clustering(path);
-			chartsFilenames = DiagramCreator.masterCreate(clusters);
-			session.setAttribute("clusters", clusters);
-			session.setAttribute("charts",chartsFilenames );
+				WekaClusterer.setNumClusters(Clusteranzahl);
+				try {
+					clusters = WekaClusterer.clustering(path);
+				} catch (Exception e) {
+					response.sendRedirect("DataControl?fileError=true");
+					return;
+				}
+				chartsFilenames = DiagramCreator.masterCreate(clusters);
+				session.setAttribute("clusters", clusters);
+				session.setAttribute("charts",chartsFilenames );
 			}
 			else
 			{
-				//Datei existiert nicht und es muss ein Fehler ausgegeben werden
+				response.sendRedirect("DataControl");
+				return;
 			}
 		}else{
 			clusters = (Cluster[]) session.getAttribute("clusters");
