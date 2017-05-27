@@ -43,6 +43,7 @@ public class DataControl extends HttpServlet{
             return;
         }
         
+        
         HttpSession session = request.getSession();
         if(session.getAttribute("uname") == null)
         	response.sendRedirect("Login");

@@ -24,14 +24,12 @@ public class StartAnalysisServlet extends HttpServlet {
      */
     public StartAnalysisServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
@@ -58,7 +56,6 @@ public class StartAnalysisServlet extends HttpServlet {
                 "   </form>" +
                 "</tr>" +
                 "</table>");
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
