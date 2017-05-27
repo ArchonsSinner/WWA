@@ -93,9 +93,12 @@ public class DataControl extends HttpServlet{
                         String fileName = new File(item.getName()).getName();
                         String filePath = uploadPath + File.separator + new Date().toString() + fileName;
                         File storeFile = new File(filePath);
-
+			
+			//Test uploaded file is CSV and store
+			if(fileName.endsWith(".csv")){
                             item.write(storeFile);
-                            session.setAttribute("file", filePath);
+                        }
+			session.setAttribute("file", filePath);
                     }
                 }
             }
