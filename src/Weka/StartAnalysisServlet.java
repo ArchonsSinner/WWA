@@ -40,7 +40,13 @@ public class StartAnalysisServlet extends HttpServlet {
         if (request.getParameter("path")!= null){
         	session.setAttribute("file", request.getParameter("path"));
         }
+        out.println("<html>");
 
+        out.println("<head>");
+        out.println("<script src='js/loadingScreen.js'></script>");
+        out.println("</head>");
+
+        out.println("<body>");
         out.println("<table align='left'>" +
                 "<tr>" +
                 "   <form action = 'StartAnalysis' method = 'post'>" +
@@ -56,10 +62,15 @@ public class StartAnalysisServlet extends HttpServlet {
                 "			<option value=\"9\">9</option>"+
                 "			<option value=\"10\">10</option>"+
                 "			</select> </td>" +
-                "       <td><input type = 'submit' value = 'Analyse Starten' /></td" +
+                "       <td><input type = 'submit' value = 'Analyse Starten' onclick='showLoadingScreen();'/></td" +
                 "   </form>" +
                 "</tr>" +
-                "</table>");
+                "</table> "
+                + "<p id='loadingScreen'>1</p>");
+
+        out.println("</body>");
+        out.println("</html>");
+
 	}
 
 	/**
