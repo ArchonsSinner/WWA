@@ -36,6 +36,10 @@ public class StartAnalysisServlet extends HttpServlet {
         if (session.getAttribute("uname")==null){
             response.sendRedirect("Login");
         }
+        //CSV-Datei-Parameter wenn vorhanden an Session übergeben
+        if (request.getParameter("path")!= null){
+        	session.setAttribute("path", request.getParameter("path"));
+        }
 
         out.println("<table align='left'>" +
                 "<tr>" +
