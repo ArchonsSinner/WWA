@@ -182,8 +182,7 @@ public class DataControl extends HttpServlet{
              ) {
             String name = f.getName();
             if(name.endsWith(".csv")){
-                //TBD create Link etc to display analysis for each file
-                out.println("<tr><td>" + name + "</td></tr>");
+                out.println("<tr><td><a href='/startanalysis?path=" + uploadPath + name + "'>" + name + "</a></td></tr>");
             }
         }
         out.println("</table>");
