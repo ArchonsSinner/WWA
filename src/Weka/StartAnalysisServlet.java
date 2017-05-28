@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class StartAnalysis
+ * 
  */
 @WebServlet("/StartAnalysis")
 public class StartAnalysisServlet extends HttpServlet {
@@ -40,6 +41,7 @@ public class StartAnalysisServlet extends HttpServlet {
         if (request.getParameter("path")!= null){
         	session.setAttribute("file", request.getParameter("path"));
         }
+        session.removeAttribute("clusters");
         out.println("<html>");
 
         out.println("<head>");
@@ -65,8 +67,9 @@ public class StartAnalysisServlet extends HttpServlet {
                 "       <td><input type = 'submit' value = 'Analyse Starten' onclick='showLoadingScreen();'/></td" +
                 "   </form>" +
                 "</tr>" +
-                "</table> "
-                + "<p id='loadingScreen'>1</p>");
+                "</table>"
+                + "<br>"
+                + "<p id='loadingScreen'></p>");
 
         out.println("</body>");
         out.println("</html>");

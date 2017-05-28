@@ -21,7 +21,6 @@ public class DiagramCreator {
 	//Pfad f�r die charts muss noch angepasst werden
 	//
 	private static String path = System.getProperty("user.dir") + File.separator + "WWA" + File.separator + "data" + File.separator + "charts" + File.separator;
-//	private static String path = "C:/Users/Admin/workspace/data/charts/";
 	private static int width=600;
 	private static int height=500;
 	private static int widthBig=800;

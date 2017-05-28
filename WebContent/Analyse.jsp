@@ -11,10 +11,11 @@
 
 
 	<%
-	//Hier kommt der wunderbare Login und der schaut wie folgt aus: Da kann nix schiefgehen
-		//if(session.getAttribute("username") == null || session.getAttribute("username") == ""){
-			//response.sendRedirect("Login.jsp");
-		//}
+
+		if(session.getAttribute("uname") == null || session.getAttribute("username") == ""){
+			response.sendRedirect("Login");
+			return;
+		}
 	
 		Cluster[] clusters = (Cluster[])request.getSession().getAttribute("clusters");
 		String[] chartsFilenames = (String[])request.getSession().getAttribute("charts");
@@ -82,7 +83,10 @@
 	<!--  Grafiken -->
 	<%
 		if (activeCluster > 0) {
+
+			System.out.println(chartsFilenames[(activeCluster * 2) - 1]);
 	%>
+	
 	<img src="<%=chartsFilenames[(activeCluster * 2) - 1]%>">
 	<img src="<%=chartsFilenames[activeCluster * 2]%>">
 	<%
