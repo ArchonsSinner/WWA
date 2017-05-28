@@ -36,7 +36,9 @@ public class DataControl extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-
+	
+	try {
+	    
         // checks if the request actually contains upload file
         if (!ServletFileUpload.isMultipartContent(request)) {
             //TBD Exception handling
@@ -101,12 +103,18 @@ public class DataControl extends HttpServlet{
         }
 
         response.sendRedirect("StartAnalysis");
+	} catch (Exception e) {
+		out.println("Es ist ein Fehler aufgetreten. Wenn der Fehler erneut auftritt, kontaktieren Sie bitte Ihren Administrator!");
+	}
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
+        
+	try {
+	    
+	HttpSession session = request.getSession();
         if (session.getAttribute("uname")==null){
             response.sendRedirect("Login");
         }
@@ -158,6 +166,9 @@ public class DataControl extends HttpServlet{
             }
         }
         out.println("</table>");
+	} catch (Exception e) {
+		out.println("Es ist ein Fehler aufgetreten. Wenn der Fehler erneut auftritt, kontaktieren Sie bitte Ihren Administrator!");
+	}
     }
     
     private String extractFileName(Part part) {
