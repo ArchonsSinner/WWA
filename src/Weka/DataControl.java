@@ -122,7 +122,7 @@ public class DataControl extends HttpServlet{
         }
         out.println(
                 "   <form action = 'DataControl' method = 'post' enctype = 'multipart/form-data'>" +
-                "       <td><input type = 'file' name = 'file' size = '50' /></td>" +
+                "       <td><input type = 'file' accept= '.csv' name = 'file' size = '50' /></td>" +
                 "           </tr><tr>" +
                 "       <td><input type = 'submit' value = 'Upload File' /></td" +
                 "   </form>" +
