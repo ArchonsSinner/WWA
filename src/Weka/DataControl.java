@@ -74,42 +74,14 @@ public class DataControl extends HttpServlet{
 				// Schreibt den Dateinamen neu für den Fall, dass der Dateiname
 				// einen Pfad enthält.
 				fileName = new File(fileName).getName();
-				String fullName = uploadDir + File.separator + new Date().toString().replaceAll(":", "_") + fileName;
-				part.write(fullName);
-				session.setAttribute("file", fullName);
+				if(fileName.endsWith(".csv")){
+                            		String fullName = uploadDir + File.separator + new Date().toString().replaceAll(":", "_") + fileName;
+					part.write(fullName);
+					session.setAttribute("file", fullName);
+                        	}
+				
 			}
 		}
-
-        try {
-            // parses the request's content to extract file data
-            @SuppressWarnings("unchecked")
-            List<FileItem> formItems = upload.parseRequest((RequestContext) request);
-
-            if (formItems != null && formItems.size() > 0) {
-                // iterates over form's fields
-                for (FileItem item : formItems) {
-                    // processes only fields that are not form fields
-                    if (!item.isFormField()) {
-                        String fileName = new File(item.getName()).getName();
-                        String filePath = uploadPath + File.separator + new Date().toString() + fileName;
-                        File storeFile = new File(filePath);
-			
-			//Test uploaded file is CSV and store
-			if(fileName.endsWith(".csv")){
-                            item.write(storeFile);
-                        }
-			session.setAttribute("file", filePath);
-                    }
-                }
-            }
-        } catch (Exception ex) {
-            /* TBD
-            *
-            *
-            *
-            *
-            * */
-        }
 
         /*  Check num of files in directory and delete all csv older than latest 5
         *
