@@ -162,7 +162,7 @@ public class DataControl extends HttpServlet{
              ) {
             String name = f.getName();
             if(name.endsWith(".csv")){
-                out.println("<tr><td><a href='/startanalysis?path=" + uploadPath + name + "'>" + name + "</a></td></tr>");
+                out.println("<tr><td><a href='/Weka/StartAnalysis?path=" + uploadPath + File.separator + name + "'>" + name + "</a></td></tr>");
             }
         }
         out.println("</table>");

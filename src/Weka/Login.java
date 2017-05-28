@@ -40,6 +40,10 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		
+		HttpSession session = request.getSession();
+		if(session.getAttribute("uname") != null)
+			response.sendRedirect("DataControl");
 
 		out.println("<head><link rel='stylesheet' type='text/css' href='" + request.getContextPath() + "/bulma.css'/>"
 				+ "<title>Weka Web App</title></head>");
