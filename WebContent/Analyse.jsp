@@ -38,7 +38,7 @@ try{
 		
 	%>
 <div style="float:up">
-<a href="Analyse.jsp">Gesamt</a></td>
+<a href="Analyse.jsp">Gesamt</a>
 			<%
 				for (int i = 0; i < clusters.length; i++) {
 					if (i + 1 == activeCluster) {
@@ -93,7 +93,6 @@ try{
 	<%
 		if (activeCluster > 0) {
 
-			System.out.println(chartsFilenames[(activeCluster * 2) - 1]);
 	%>
 	
 	<img src="<%=chartsFilenames[(activeCluster * 2) - 1]%>">
