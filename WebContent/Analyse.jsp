@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="Weka.Cluster,Weka.DiagramCreator,Weka.WekaClusterer"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Analyse</title>
 </head>
 <body>
@@ -57,25 +57,35 @@ try{
 	<div style="float:left">
 	
 	<div style="float:left">
-	test<br>
-	test<br>
-	test<br>
-	test<br>
-	test<br>
-	test<br>
-	test<br>
-	test<br>
-	test<br>
-	
-	<!-- 
-	Hier Kommt irgendwas f�r die Marketing Ma�nahmen rein
-	Wird ganz links neben der Tabelle angezeigt
+		<!-- 
+	Hier	Hier Kommt irgendwas fÃ¼r die Marketing MaÃnahmen rein
+ ganz links neben der Tabelle angezeigt
 	 -->
+	 <label>Marketingmaßnahmen:</label><br>
+	<select name="marketingSelection" multiple="yes">
+	
+	<%MarketingHelper helper = new MarketingHelper(request,response) %>
+	<%= helper.genOptions() %>
+	</select>
+<%-- 	<%
+	Set<String> marketingSet = MarketingHelper.getSet();
+	if(!marketingSet.isEmpty()){
+		%><select name="marketingSelection" multiple="yes"><%
+		for(String s: marketinSet){
+			%><option><% s %></option>"<%
+		}
+	}
+	%> --%>
+	
+	<form action="MarketingServlet" method="post">
+	<input type="text" name="marketingAction">
+	<input type="submit" value="Hinzufügen">
+	</form>
 	</div>
 	
 	<div style="float:right">
 	<table border="1">
-		<!--  Tabelle �berschrift   -->
+		<!--  Tabelle Ãberschrift   -->
 		<tr >
 			<td>Attribut</td>
 			<%
