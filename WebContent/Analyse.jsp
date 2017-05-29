@@ -53,8 +53,29 @@ try{
 				}
 			%>
 </div>
-	<!-- Überschriften -->
-	<table border="1" style="float:left">
+
+	<div style="float:left">
+	
+	<div style="float:left">
+	test<br>
+	test<br>
+	test<br>
+	test<br>
+	test<br>
+	test<br>
+	test<br>
+	test<br>
+	test<br>
+	
+	<!-- 
+	Hier Kommt irgendwas für die Marketing Maßnahmen rein
+	Wird ganz links neben der Tabelle angezeigt
+	 -->
+	</div>
+	
+	<div style="float:right">
+	<table border="1">
+		<!--  Tabelle Überschrift   -->
 		<tr >
 			<td>Attribut</td>
 			<%
@@ -88,7 +109,10 @@ try{
 		%>
 		
 	</table>
+	</div>	
+	</div>
 	
+	<div>
 	<!--  Grafiken -->
 	<%
 		if (activeCluster > 0) {
@@ -104,5 +128,6 @@ try{
 	<%
 		}
 	%>
+	</div>
 </body>
 </html>

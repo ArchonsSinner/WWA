@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
 
 		out.println("<div class='block'>" + "<table align='center'>"
 				+ "       <form method='post' action='Login' align='center'>"
-			    	+ "           <tr><td><img src='logo.gif' ><br></td></tr>"
+			    	+ "           <tr><td><img src='Images/logo.gif' ><br></td></tr>"
 				+ "           <tr><td><input type='text' name='username' placeholder='Benutzername'></td></tr>"
 				+ "           <tr><td><input type='password' name='password' placeholder='Passwort'></td></tr>"
 				+ "           <tr><td><input type='submit' value='Anmelden' align='center'></td></tr>"

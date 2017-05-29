@@ -1,4 +1,5 @@
 package Weka;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -16,15 +17,14 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 
-
 public class DiagramCreator {
-	//Pfad fï¿½r die charts muss noch angepasst werden
+	// Pfad fï¿½r die charts muss noch angepasst werden
 	//
-	private static String path = System.getProperty("user.dir") + File.separator + "WWA" + File.separator + "data" + File.separator + "charts" + File.separator;
-	private static int width=600;
-	private static int height=500;
-	private static int widthBig=800;
-	private static int heightBig=600;
+	private static String path = System.getProperty("user.dir") + File.separator + "WWA" + File.separator + "data" + File.separator + "charts";
+	private static int width = 600;
+	private static int height = 500;
+	private static int widthBig = 800;
+	private static int heightBig = 600;
 
 	public static String createClusterSizeBarChart(Cluster[] clusters) {
 
@@ -34,25 +34,24 @@ public class DiagramCreator {
 			d = clusters[i].getSize();
 			myDataset.addValue(d, "1", Integer.toString(i + 1));
 		}
-		JFreeChart myBarChart = ChartFactory.createBarChart("Clustergrï¿½ï¿½e", "Cluster Nr", "Anz Pers", myDataset,PlotOrientation.VERTICAL,false,true,false);
-		CategoryPlot plot=(CategoryPlot)myBarChart.getPlot();
+		JFreeChart myBarChart = ChartFactory.createBarChart("Clustergrï¿½ï¿½e", "Cluster Nr", "Anz Pers", myDataset,
+				PlotOrientation.VERTICAL, false, true, false);
+		CategoryPlot plot = (CategoryPlot) myBarChart.getPlot();
 		BarRenderer renderer = (BarRenderer) plot.getRenderer();
-        renderer.setBaseItemLabelsVisible(true);
-        renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator());
-		
+		renderer.setBaseItemLabelsVisible(true);
+		renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator());
+
 		long timestamp = System.currentTimeMillis();
 		int tryCount = 0;
 		String filename = null;
 		while (tryCount < 3 && filename == null) {
 			try {
-				filename = saveChartToJPG(myBarChart, path + "ChartClusterSize" + timestamp,widthBig, heightBig);
-				
-				
-				
+				filename = saveChartToJPG(myBarChart, path + File.separator + "ChartClusterSize" + timestamp, widthBig,
+						heightBig);
 			} catch (IOException e) {
 				timestamp++;
 				tryCount++;
-				if (tryCount>3)
+				if (tryCount > 3)
 					System.out.println("Error: could not save Chart");
 			}
 		}
@@ -72,25 +71,28 @@ public class DiagramCreator {
 			int x = (int) d;
 			myDataset.addValue(x, "1", s);
 		}
-		JFreeChart myBarChart1 = ChartFactory.createBarChart("Anteil der Kï¿½ufe der Warengruppen\nCluster " + cluster.getIndex()+" ("+cluster.getSize()+")",
-				"Warengruppe", "Anteil Kï¿½ufe in %", myDataset,PlotOrientation.VERTICAL,false,true,false);
-		
-		CategoryPlot plot=(CategoryPlot)myBarChart1.getPlot();
+		JFreeChart myBarChart1 = ChartFactory.createBarChart(
+				"Anteil der Kï¿½ufe der Warengruppen\nCluster " + cluster.getIndex() + " (" + cluster.getSize() + ")",
+				"Warengruppe", "Anteil Kï¿½ufe in %", myDataset, PlotOrientation.VERTICAL, false, true, false);
+
+		CategoryPlot plot = (CategoryPlot) myBarChart1.getPlot();
 		BarRenderer renderer = (BarRenderer) plot.getRenderer();
-        renderer.setBaseItemLabelsVisible(true);
-        renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator());
-        plot.getDomainAxis().setMaximumCategoryLabelLines(3);
-		
+		renderer.setBaseItemLabelsVisible(true);
+		renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator());
+		plot.getDomainAxis().setMaximumCategoryLabelLines(3);
+
 		long timestamp = System.currentTimeMillis();
 		int tryCount = 0;
 		String filename = null;
 		while (tryCount < 3 && filename == null) {
 			try {
-				filename = saveChartToJPG(myBarChart1, path + "ChartItemBuyRelation" + timestamp + "cl"+cluster.getIndex(), width, height);
+				filename = saveChartToJPG(myBarChart1,
+						path + File.separator + "ChartItemBuyRelation" + timestamp + "cl" + cluster.getIndex(), width,
+						height);
 			} catch (IOException e) {
 				timestamp++;
 				tryCount++;
-				if (tryCount>3)
+				if (tryCount > 3)
 					System.out.println("Error: could not save Chart");
 			}
 		}
@@ -107,24 +109,24 @@ public class DiagramCreator {
 			myDataset.setValue(weekdays[i], d);
 		}
 
-		JFreeChart myPieChart = ChartFactory.createPieChart("Einkï¿½ufe pro Wochentag\nCluster " + cluster.getIndex()+" ("+cluster.getSize()+")",
-				myDataset);
-		PiePlot plot=(PiePlot)myPieChart.getPlot();
-		PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator(
-	            "{0}: {1} ({2})", new DecimalFormat("0"), new DecimalFormat("0%"));
-	        plot.setLabelGenerator(gen);
+		JFreeChart myPieChart = ChartFactory.createPieChart(
+				"Einkï¿½ufe pro Wochentag\nCluster " + cluster.getIndex() + " (" + cluster.getSize() + ")", myDataset);
+		PiePlot plot = (PiePlot) myPieChart.getPlot();
+		PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator("{0}: {1} ({2})", new DecimalFormat("0"),
+				new DecimalFormat("0%"));
+		plot.setLabelGenerator(gen);
 
-	        
 		long timestamp = System.currentTimeMillis();
 		int tryCount = 0;
 		String filename = null;
 		while (tryCount < 3 && filename == null) {
 			try {
-				filename = saveChartToJPG(myPieChart, path + "ChartWeekdays" + timestamp + "cl"+cluster.getIndex(), width, height);
+				filename = saveChartToJPG(myPieChart,
+						path + File.separator + "ChartWeekdays" + timestamp + "cl" + cluster.getIndex(), width, height);
 			} catch (IOException e) {
 				timestamp++;
 				tryCount++;
-				if (tryCount>3)
+				if (tryCount > 3)
 					System.out.println("Error: could not save Chart");
 			}
 		}
@@ -143,16 +145,26 @@ public class DiagramCreator {
 	}
 
 	public static String[] masterCreate(Cluster[] clusters) {
-		//Pfad überprüfen und ggfs erstellen
+		// Pfad überprüfen und ggfs erstellen
 		File file = new File(path);
-		if(!file.exists())
+		if (!file.exists())
 			file.mkdirs();
-		int chartCount=(clusters.length*2)+1;
+
+		// Alte Charts löschen
+		File[] fileArray = file.listFiles();
+		for (int i = 1; i < fileArray.length; i++) {
+			if (fileArray[i].lastModified() < System.currentTimeMillis() - (24*3600*1000))
+				try{
+					fileArray[i].delete();
+				}catch(Exception exc){}
+		}
+
+		int chartCount = (clusters.length * 2) + 1;
 		String[] fileList = new String[chartCount];
-		fileList[0]=DiagramCreator.createClusterSizeBarChart(clusters);
+		fileList[0] = DiagramCreator.createClusterSizeBarChart(clusters);
 		for (int i = 0; i < clusters.length; i++) {
-			fileList[2*(i+1)-1]=DiagramCreator.createItemCountPerCluster(clusters[i]);
-			fileList[2*(i+1)]=DiagramCreator.createWeekdayPieChart(clusters[i]);
+			fileList[2 * (i + 1) - 1] = DiagramCreator.createItemCountPerCluster(clusters[i]);
+			fileList[2 * (i + 1)] = DiagramCreator.createWeekdayPieChart(clusters[i]);
 		}
 		return fileList;
 	}
