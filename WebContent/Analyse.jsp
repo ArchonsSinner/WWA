@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="Weka.Cluster,Weka.DiagramCreator,Weka.WekaClusterer"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Analyse</title>
 </head>
 <body>
@@ -68,14 +68,14 @@ try{
 	test<br>
 	
 	<!-- 
-	Hier Kommt irgendwas für die Marketing Maßnahmen rein
+	Hier Kommt irgendwas fÃ¼r die Marketing MaÃŸnahmen rein
 	Wird ganz links neben der Tabelle angezeigt
 	 -->
 	</div>
 	
 	<div style="float:right">
 	<table border="1">
-		<!--  Tabelle Überschrift   -->
+		<!--  Tabelle Ãœberschrift   -->
 		<tr >
 			<td>Attribut</td>
 			<%

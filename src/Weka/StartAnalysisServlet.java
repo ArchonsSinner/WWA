@@ -76,6 +76,7 @@ public class StartAnalysisServlet extends HttpServlet {
         out.println("</html>");
 		}catch(Exception exc){
 			response.sendRedirect("Error.html");
+			return;
 		}
 
 	}
@@ -135,6 +136,7 @@ public class StartAnalysisServlet extends HttpServlet {
 	
 	}catch(Exception exc){
 		response.sendRedirect("Error.html");
+		return;
 	}
 	}
 }

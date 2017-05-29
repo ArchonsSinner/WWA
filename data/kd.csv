@@ -1,0 +1,101 @@
+Geschlecht,Alter,Kinder,Familienstand,Berufstätig,Haushaltsnettoeinkommen,Fernsehkonsum,Einkaufstag,Einkaufsmonat,Einkaufsuhrzeit,Einkaufssumme,Fertiggerichte,Tiefkühlware,Milchprodukte,Backwaren,Obst/Gemüse,Spirituosen,Tiernahrung,Bier,Frischfleisch,Drogerieartikel,Konserven,Kaffee/Tee,Süßigkeiten
+w,51-60,ja,ledig,nein,2000-<3200,ca. 3 Std,Freitag,November,>17 Uhr,72,0,0,13,38,0,2,12,0,0,0,0,24,6
+w,18-30,nein,Partnerschaft,ja,1000-<2000,ca. 3 Std,Mittwoch,August,12-14 Uhr,116,0,9,0,6,0,0,0,0,9,0,7,0,0
+w,51-60,nein,ledig,ja,3200-<4500,ca. 2 Std,Mittwoch,Juni,14-17 Uhr,132,9,0,12,33,3,8,27,0,0,4,0,23,0
+w,>60,nein,ledig,ja,>4500,>4 Std,Montag,April,<10 Uhr,5,0,0,16,6,0,11,21,0,0,0,0,1,0
+w,18-30,ja,Partnerschaft,ja,<1000,<1 Std,Montag,September,12-14 Uhr,53,0,0,0,0,0,0,0,0,3,0,0,0,10
+w,31-40,nein,ledig,nein,2000-<3200,ca. 1 Std,Dienstag,Februar,10-12 Uhr,94,0,0,0,0,0,0,0,0,0,9,0,0,0
+m,41-50,nein,ledig,ja,<1000,ca. 4 Std,Samstag,Mai,14-17 Uhr,122,0,0,0,9,0,0,0,0,0,0,0,0,4
+m,18-30,ja,ledig,ja,1000-<2000,ca. 1 Std,Freitag,April,14-17 Uhr,34,24,21,0,0,5,5,0,2,18,0,0,0,0
+w,41-50,nein,ledig,ja,3200-<4500,ca. 4 Std,Dienstag,Oktober,>17 Uhr,81,0,0,0,0,0,4,0,0,0,0,10,0,0
+m,31-40,ja,ledig,nein,<1000,ca. 2 Std,Samstag,Dezember,<10 Uhr,21,0,1,0,0,0,0,0,0,0,0,0,4,0
+w,>60,ja,ledig,nein,1000-<2000,ca. 3 Std,Montag,September,<10 Uhr,48,0,0,17,35,0,12,21,0,0,0,3,34,0
+w,51-60,nein,Partnerschaft,ja,<1000,ca. 2 Std,Mittwoch,April,>17 Uhr,76,0,0,0,7,0,0,2,0,0,0,0,0,0
+w,41-50,ja,Partnerschaft,ja,3200-<4500,<1 Std,Dienstag,August,12-14 Uhr,5,7,0,0,0,0,0,0,0,0,5,0,0,0
+w,41-50,nein,Partnerschaft,ja,1000-<2000,ca. 1 Std,Samstag,Januar,>17 Uhr,115,0,0,0,10,7,1,0,0,0,0,8,0,0
+m,18-30,ja,ledig,ja,1000-<2000,ca. 4 Std,Samstag,März,14-17 Uhr,5,1,37,0,0,0,23,0,21,12,9,0,0,0
+w,>60,ja,Partnerschaft,nein,>4500,ca. 2 Std,Samstag,Mai,<10 Uhr,46,0,0,0,0,0,0,0,0,0,0,0,9,0
+w,51-60,ja,ledig,nein,1000-<2000,ca. 4 Std,Samstag,November,>17 Uhr,105,0,0,26,11,0,18,12,0,0,0,6,21,0
+w,>60,ja,ledig,nein,2000-<3200,ca. 3 Std,Samstag,Oktober,<10 Uhr,40,0,0,16,11,0,5,4,0,3,0,4,17,0
+w,51-60,nein,Partnerschaft,ja,2000-<3200,ca. 4 Std,Montag,Januar,<10 Uhr,36,0,0,0,5,0,0,0,0,0,0,0,0,5
+w,>60,nein,Partnerschaft,nein,3200-<4500,ca. 3 Std,Samstag,August,10-12 Uhr,71,0,0,0,0,0,0,0,0,0,0,0,0,0
+w,>60,nein,ledig,nein,1000-<2000,>4 Std,Freitag,März,<10 Uhr,73,3,9,2,18,0,16,30,0,0,0,2,33,9
+w,18-30,nein,Partnerschaft,ja,2000-<3200,ca. 2 Std,Freitag,Juli,<10 Uhr,81,0,0,0,6,7,0,0,0,6,9,0,3,0
+w,31-40,nein,Partnerschaft,nein,1000-<2000,ca. 1 Std,Freitag,Juni,14-17 Uhr,100,0,0,7,0,4,0,0,5,0,0,0,0,0
+m,41-50,ja,Partnerschaft,ja,2000-<3200,ca. 2 Std,Donnerstag,November,10-12 Uhr,52,0,0,0,0,0,0,1,0,0,0,0,0,0
+w,31-40,nein,Partnerschaft,ja,1000-<2000,>4 Std,Samstag,November,12-14 Uhr,36,0,0,0,0,0,0,0,7,0,0,0,0,0
+w,>60,nein,ledig,nein,1000-<2000,ca. 1 Std,Samstag,August,10-12 Uhr,5,0,3,12,31,0,8,25,0,0,0,0,27,0
+m,18-30,nein,Partnerschaft,ja,<1000,<1 Std,Samstag,August,<10 Uhr,129,8,7,0,0,0,8,0,39,21,0,0,3,0
+m,18-30,nein,ledig,ja,3200-<4500,ca. 1 Std,Donnerstag,November,<10 Uhr,182,33,4,0,0,5,39,0,26,28,0,0,0,0
+w,18-30,ja,ledig,nein,1000-<2000,ca. 3 Std,Freitag,Februar,<10 Uhr,89,3,0,0,0,0,0,0,0,0,0,6,0,0
+m,18-30,ja,ledig,ja,2000-<3200,ca. 3 Std,Samstag,März,10-12 Uhr,69,1,26,0,0,0,29,0,28,27,8,0,0,0
+w,>60,nein,ledig,nein,>4500,<1 Std,Montag,Juni,10-12 Uhr,132,0,0,26,39,0,18,39,0,0,0,8,27,0
+m,18-30,ja,ledig,ja,>4500,ca. 1 Std,Samstag,Oktober,12-14 Uhr,200,36,13,0,0,0,3,0,26,11,0,0,0,0
+w,51-60,ja,ledig,ja,>4500,ca. 2 Std,Montag,Dezember,<10 Uhr,30,3,0,13,34,5,5,2,0,7,0,0,15,0
+w,31-40,ja,Partnerschaft,nein,2000-<3200,ca. 2 Std,Mittwoch,November,<10 Uhr,95,0,0,0,0,0,9,0,0,3,0,0,0,0
+w,51-60,ja,Partnerschaft,ja,1000-<2000,>4 Std,Donnerstag,April,10-12 Uhr,85,0,3,0,9,0,2,7,0,0,0,0,0,0
+m,18-30,ja,ledig,ja,3200-<4500,ca. 2 Std,Samstag,Juli,<10 Uhr,57,10,34,0,0,0,38,0,44,30,0,7,0,0
+m,41-50,nein,Partnerschaft,nein,3200-<4500,ca. 1 Std,Samstag,Dezember,<10 Uhr,54,0,0,0,0,0,0,0,0,0,3,0,0,0
+w,51-60,ja,ledig,nein,2000-<3200,ca. 4 Std,Donnerstag,Oktober,10-12 Uhr,93,0,0,3,19,0,3,19,0,4,0,0,6,0
+w,51-60,nein,Partnerschaft,nein,2000-<3200,ca. 2 Std,Freitag,September,12-14 Uhr,132,0,0,0,0,0,0,0,0,0,0,7,0,0
+m,18-30,ja,Partnerschaft,ja,1000-<2000,ca. 4 Std,Samstag,Mai,14-17 Uhr,98,6,1,0,0,0,20,4,34,27,0,0,0,0
+w,>60,ja,Partnerschaft,nein,>4500,ca. 2 Std,Freitag,Dezember,10-12 Uhr,81,0,0,7,7,0,0,0,0,0,0,0,0,0
+w,>60,ja,ledig,nein,2000-<3200,<1 Std,Samstag,April,<10 Uhr,96,0,0,20,38,0,17,3,0,3,0,0,18,6
+m,18-30,nein,Partnerschaft,ja,1000-<2000,ca. 3 Std,Montag,Oktober,>17 Uhr,81,35,35,0,0,0,25,0,5,3,0,0,0,0
+w,31-40,nein,Partnerschaft,ja,2000-<3200,ca. 2 Std,Donnerstag,Februar,>17 Uhr,40,0,0,0,0,3,0,0,0,0,3,0,9,0
+m,18-30,ja,ledig,ja,2000-<3200,>4 Std,Samstag,April,>17 Uhr,119,32,28,0,0,0,7,0,34,11,10,0,0,0
+w,41-50,ja,ledig,nein,2000-<3200,ca. 3 Std,Dienstag,November,10-12 Uhr,116,0,0,2,0,0,0,0,0,0,0,0,0,0
+w,51-60,ja,Partnerschaft,ja,>4500,ca. 2 Std,Mittwoch,Dezember,10-12 Uhr,136,6,0,0,0,0,0,0,0,0,0,0,0,0
+w,41-50,ja,ledig,nein,1000-<2000,ca. 1 Std,Freitag,Januar,12-14 Uhr,5,9,0,0,6,8,0,0,0,0,0,0,0,0
+m,>60,nein,Partnerschaft,nein,3200-<4500,ca. 1 Std,Samstag,Juni,<10 Uhr,160,5,10,0,0,0,0,7,0,7,0,0,0,0
+w,41-50,nein,Partnerschaft,ja,3200-<4500,ca. 3 Std,Freitag,Oktober,10-12 Uhr,94,0,0,0,5,0,0,0,0,0,0,0,0,0
+w,51-60,ja,ledig,nein,2000-<3200,<1 Std,Donnerstag,März,10-12 Uhr,73,0,0,29,9,9,12,8,0,0,0,5,10,0
+m,18-30,nein,ledig,ja,1000-<2000,ca. 1 Std,Samstag,Mai,12-14 Uhr,72,14,9,0,0,0,6,0,11,23,0,0,0,0
+w,>60,ja,ledig,nein,1000-<2000,<1 Std,Freitag,April,<10 Uhr,87,0,0,7,25,0,0,20,0,0,0,4,15,0
+w,>60,nein,Partnerschaft,nein,2000-<3200,ca. 3 Std,Montag,Februar,10-12 Uhr,73,8,0,3,0,0,0,2,0,0,0,0,0,0
+w,31-40,ja,ledig,nein,>4500,ca. 3 Std,Freitag,April,<10 Uhr,67,0,7,0,0,0,0,0,0,0,1,8,0,0
+w,31-40,nein,ledig,nein,2000-<3200,ca. 4 Std,Samstag,März,<10 Uhr,98,0,9,0,0,0,0,0,3,3,0,0,6,0
+w,18-30,nein,Partnerschaft,nein,1000-<2000,ca. 2 Std,Donnerstag,Juli,>17 Uhr,88,0,0,0,0,4,0,0,0,0,3,9,5,0
+w,>60,nein,ledig,nein,<1000,ca. 3 Std,Samstag,September,<10 Uhr,27,0,0,16,25,0,6,20,0,10,0,0,14,0
+m,18-30,nein,ledig,ja,>4500,ca. 2 Std,Samstag,Dezember,10-12 Uhr,73,8,29,0,0,0,6,0,11,9,4,9,0,0
+w,41-50,ja,Partnerschaft,ja,>4500,ca. 3 Std,Donnerstag,Juni,<10 Uhr,45,0,3,0,0,0,0,0,10,0,3,0,0,0
+w,41-50,ja,Partnerschaft,nein,2000-<3200,>4 Std,Donnerstag,August,10-12 Uhr,85,0,1,0,9,0,0,0,2,0,0,2,0,0
+w,18-30,ja,Partnerschaft,ja,1000-<2000,<1 Std,Donnerstag,Juni,12-14 Uhr,35,0,0,0,0,0,2,0,0,10,10,0,0,8
+w,51-60,nein,Partnerschaft,ja,1000-<2000,ca. 3 Std,Montag,Juni,>17 Uhr,152,0,2,0,0,7,6,8,0,0,0,0,0,0
+w,51-60,nein,ledig,ja,3200-<4500,ca. 2 Std,Dienstag,Juni,>17 Uhr,126,0,0,14,16,0,21,6,0,0,0,0,14,0
+w,31-40,ja,ledig,nein,<1000,ca. 2 Std,Samstag,Februar,14-17 Uhr,138,0,0,0,0,7,0,0,0,0,0,0,0,0
+m,18-30,ja,ledig,ja,3200-<4500,<1 Std,Samstag,Oktober,12-14 Uhr,205,31,28,0,0,0,3,0,28,17,0,4,10,0
+m,31-40,nein,Partnerschaft,ja,<1000,ca. 3 Std,Montag,November,12-14 Uhr,58,0,0,0,0,0,0,0,0,0,0,0,0,0
+m,>60,nein,ledig,nein,3200-<4500,ca. 4 Std,Samstag,Oktober,10-12 Uhr,147,0,0,0,0,0,0,0,0,0,0,0,7,0
+w,>60,ja,ledig,nein,>4500,ca. 4 Std,Mittwoch,Januar,<10 Uhr,156,0,0,28,15,0,18,7,0,7,0,0,24,0
+m,18-30,nein,ledig,ja,<1000,<1 Std,Samstag,Dezember,10-12 Uhr,58,25,14,0,0,0,21,0,15,26,0,0,0,0
+m,31-40,nein,Partnerschaft,ja,<1000,ca. 1 Std,Freitag,Juni,14-17 Uhr,47,0,0,0,0,1,0,0,0,0,0,0,1,0
+w,>60,ja,ledig,nein,2000-<3200,<1 Std,Mittwoch,November,10-12 Uhr,108,0,0,15,15,0,8,37,0,0,9,0,7,0
+w,18-30,nein,ledig,nein,1000-<2000,ca. 3 Std,Freitag,Juni,>17 Uhr,145,0,0,0,0,10,0,0,0,0,10,0,8,0
+w,51-60,ja,ledig,nein,1000-<2000,ca. 3 Std,Freitag,Dezember,14-17 Uhr,99,0,0,12,1,0,3,18,0,0,3,0,2,0
+m,>60,ja,Partnerschaft,nein,2000-<3200,>4 Std,Samstag,Februar,<10 Uhr,101,0,9,10,0,0,4,0,0,0,2,0,9,0
+m,18-30,ja,ledig,ja,<1000,ca. 2 Std,Samstag,Februar,14-17 Uhr,153,10,29,0,6,0,24,0,1,30,0,0,0,0
+w,18-30,ja,Partnerschaft,ja,3200-<4500,ca. 1 Std,Donnerstag,April,10-12 Uhr,69,0,0,0,0,0,0,0,2,4,0,9,0,0
+w,31-40,ja,ledig,nein,1000-<2000,ca. 3 Std,Mittwoch,März,10-12 Uhr,129,0,0,0,0,0,3,7,0,0,0,0,5,0
+m,41-50,ja,Partnerschaft,ja,2000-<3200,ca. 3 Std,Samstag,April,>17 Uhr,74,0,0,0,0,7,5,10,0,0,0,2,0,0
+w,>60,nein,ledig,nein,1000-<2000,ca. 2 Std,Freitag,Juli,>17 Uhr,5,0,0,12,15,0,15,37,0,0,0,0,22,3
+w,>60,nein,ledig,nein,3200-<4500,<1 Std,Freitag,März,<10 Uhr,100,0,0,20,35,0,22,22,0,0,0,0,4,0
+w,51-60,ja,ledig,nein,2000-<3200,>4 Std,Freitag,April,12-14 Uhr,98,5,0,27,15,0,18,10,0,0,0,0,37,0
+m,51-60,ja,Partnerschaft,ja,2000-<3200,ca. 3 Std,Freitag,Oktober,>17 Uhr,35,0,0,0,0,0,0,0,0,0,0,0,8,0
+w,41-50,nein,ledig,nein,2000-<3200,ca. 4 Std,Montag,Mai,14-17 Uhr,71,5,0,8,0,3,0,0,0,0,0,0,0,0
+m,>60,ja,Partnerschaft,nein,2000-<3200,ca. 3 Std,Samstag,Dezember,<10 Uhr,153,0,0,0,0,0,0,3,2,0,0,0,0,0
+w,>60,nein,Partnerschaft,nein,<1000,ca. 2 Std,Montag,September,14-17 Uhr,71,0,0,0,2,0,8,0,0,0,0,0,5,0
+w,51-60,nein,ledig,nein,1000-<2000,>4 Std,Samstag,Januar,14-17 Uhr,50,0,0,19,38,0,15,26,0,0,0,0,0,0
+m,31-40,nein,ledig,ja,2000-<3200,ca. 3 Std,Samstag,Januar,10-12 Uhr,226,0,9,10,0,0,0,0,0,0,0,0,0,0
+w,31-40,ja,Partnerschaft,nein,1000-<2000,ca. 4 Std,Donnerstag,März,>17 Uhr,188,0,0,0,6,0,0,0,9,0,0,0,9,0
+w,51-60,ja,ledig,ja,1000-<2000,ca. 3 Std,Montag,August,14-17 Uhr,33,7,0,7,17,0,4,12,0,0,0,0,31,0
+w,51-60,ja,ledig,ja,3200-<4500,ca. 2 Std,Dienstag,Januar,12-14 Uhr,22,0,5,29,18,0,14,28,0,9,6,0,6,0
+w,41-50,ja,ledig,nein,1000-<2000,ca. 2 Std,Freitag,Mai,>17 Uhr,88,0,4,0,0,0,0,0,8,0,0,0,0,0
+w,>60,nein,ledig,nein,1000-<2000,ca. 4 Std,Mittwoch,Juni,<10 Uhr,42,3,0,7,28,5,8,28,0,0,0,0,13,0
+w,41-50,nein,ledig,nein,3200-<4500,<1 Std,Samstag,Oktober,12-14 Uhr,71,0,0,0,10,0,0,0,0,0,0,0,1,10
+m,>60,ja,Partnerschaft,nein,2000-<3200,<1 Std,Samstag,Januar,10-12 Uhr,40,9,1,2,0,0,0,0,0,1,0,10,0,3
+w,51-60,nein,ledig,ja,2000-<3200,>4 Std,Mittwoch,November,14-17 Uhr,179,0,6,1,18,0,2,26,0,0,0,0,8,10
+w,31-40,ja,ledig,ja,1000-<2000,ca. 2 Std,Mittwoch,Oktober,>17 Uhr,5,6,0,0,0,0,0,0,0,0,3,0,0,0
+w,41-50,ja,ledig,ja,2000-<3200,ca. 1 Std,Samstag,Mai,10-12 Uhr,89,0,0,0,3,0,0,0,0,5,0,0,0,0
+w,51-60,ja,Partnerschaft,nein,2000-<3200,>4 Std,Dienstag,Juni,>17 Uhr,5,0,0,8,0,0,0,0,0,0,0,0,0,0
+m,18-30,nein,ledig,ja,3200-<4500,>4 Std,Samstag,Januar,<10 Uhr,91,8,21,0,0,0,5,0,19,21,0,5,10,0
