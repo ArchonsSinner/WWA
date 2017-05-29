@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 /**
  * Created by florian on 23.05.17.
  */
+@WebServlet("/Login")
 public class Login extends HttpServlet {
 
     private static final long serialVersionUID = -4329419400612966819L;
