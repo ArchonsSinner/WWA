@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.management.relation.RelationSupportMBean;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +30,7 @@ public class StartAnalysisServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try{
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
@@ -43,12 +43,13 @@ public class StartAnalysisServlet extends HttpServlet {
         }
         session.removeAttribute("clusters");
         out.println("<html>");
-
         out.println("<head>");
+        
+        //Script mit funktion einbinden
         out.println("<script src='js/loadingScreen.js'></script>");
         out.println("</head>");
-
         out.println("<body>");
+        
         out.println("<table align='left'>" +
                 "<tr>" +
                 "   <form action = 'StartAnalysis' method = 'post'>" +
@@ -73,6 +74,9 @@ public class StartAnalysisServlet extends HttpServlet {
 
         out.println("</body>");
         out.println("</html>");
+		}catch(Exception exc){
+			response.sendRedirect("Error.html");
+		}
 
 	}
 
@@ -80,7 +84,7 @@ public class StartAnalysisServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		try{
 		//Clusteranzahl
 		int Clusteranzahl = 5;
 		//Clusteranzahl  wird beim aufrufen als Parameter angegeben
@@ -127,12 +131,10 @@ public class StartAnalysisServlet extends HttpServlet {
 			clusters = (Cluster[]) session.getAttribute("clusters");
 			chartsFilenames = (String[]) session.getAttribute("charts");
 		}
-		
-		
-		
-		
-		request.getRequestDispatcher("Analyse.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("Analyse.jsp").forward(request, response);		
+	
+	}catch(Exception exc){
+		response.sendRedirect("Error.html");
 	}
-
+	}
 }

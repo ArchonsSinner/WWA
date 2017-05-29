@@ -11,21 +11,30 @@
 
 
 	<%
-
+	Cluster[] clusters =null;
+	String[] chartsFilenames = null;
+	int activeCluster = 0;
+	String[] attributeNames = null;
+try{
 		if(session.getAttribute("uname") == null || session.getAttribute("username") == ""){
 			response.sendRedirect("Login");
 			return;
 		}
 	
-		Cluster[] clusters = (Cluster[])request.getSession().getAttribute("clusters");
-		String[] chartsFilenames = (String[])request.getSession().getAttribute("charts");
+		clusters = (Cluster[])request.getSession().getAttribute("clusters");
+		chartsFilenames = (String[])request.getSession().getAttribute("charts");
 
-		int activeCluster = 0;
+		
 		if (request.getParameter("activeCluster")!=null)
 			activeCluster = Integer.parseInt(request.getParameter("activeCluster"));
 		if (activeCluster> clusters.length)
 			activeCluster = 0;
-		String[] attributeNames = clusters[0].getValues().keySet().toArray(new String[0]);
+		attributeNames = clusters[0].getValues().keySet().toArray(new String[0]);
+}catch(Exception Exc){
+	response.sendRedirect("Error.html");
+	return;
+}
+	
 		
 	%>
 <div style="float:up">

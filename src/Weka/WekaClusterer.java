@@ -21,6 +21,7 @@ public class WekaClusterer {
 
 	public static Cluster[] clustering(String path1) throws Exception {
 
+		try{
 		Cluster[] clusters = new Cluster[ClusterCount];
 		String path = path1;
 		String csvDat = path;// + "kd.csv"; Wurde rausgenommen, damit der Pfad + Dateinamen direkt übergeben werden kann. Weil ansonsten würde er nur den Pfad nehmen und die Datei müsste im Forfeld richtig beannt sein.
@@ -94,6 +95,9 @@ public class WekaClusterer {
 		
 		Cluster.resetCount();
 		return clusters;
+		}catch(Exception exc){
+			throw exc;
+		}
 	}
 
 	private static Cluster createCluster(Instance ins) {

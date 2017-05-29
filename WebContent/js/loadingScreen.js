@@ -1,12 +1,12 @@
 /**
+ * JavaScript für den Ladebildschirm
  * 
  */
 
-//alert("Hallo");
-		 
+//diese Funktion wird dem Analyse starten Button zugeordnet
 function showLoadingScreen(){
-//	alert("Loading!!");
-	document.getElementById("loadingScreen").innerHTML="Loading ....";
+	document.getElementById("loadingScreen").innerHTML="Analyse wird durchgeführt...<br>Bitte Warten....";
+	//"loadingScreen" ist ein Paragraph unter der Clusteranzahlauswahl und dem StartButton 
 	return true;
 	
 }
