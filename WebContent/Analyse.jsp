@@ -68,7 +68,7 @@ try{
 	
 	<div style="float:left">
 	 <label>Marketingmaßnahmen:</label><br>
-	<select name="marketingSelection" multiple="yes">
+	<select name="marketingSelection" multiple="yes" style="width:240px">
 	
 	<%MarketingHelper helper = new MarketingHelper(request,response); %>
 	<%= helper.genOptions() %>
