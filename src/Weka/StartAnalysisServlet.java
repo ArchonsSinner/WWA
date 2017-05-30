@@ -104,7 +104,8 @@ public class StartAnalysisServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("uname") == null)
 			response.sendRedirect("Login");
-		
+		if(request.getParameter("file")!=null)
+			session.setAttribute("file", request.getParameter("file"));
 		if(session.getAttribute("file") == null)
 			response.sendRedirect("DataControl");
 		
