@@ -225,15 +225,12 @@ public class DataControl extends HttpServlet{
                     "<input type='hidden' id='file' name='file'>" +
                     "</form>" +
 
-                    "<p id='test'></p>" +
-
                     "<script type='text/javascript'>" +
                     "function setFile() {" +
                     //Get values of selection
                     "var e = document.getElementById('selection');" +
                     "var strUser = e.options[e.selectedIndex].text;" +
                     "var array = strUser.split(' ');" +
-                    "document.getElementById('test').innerHTML = array[0];" +
                     //Set post value clusteranzahl and filepath
                     "var element = document.getElementById('Clusteranzahl');" +
                     "element.value = array[2];" +
