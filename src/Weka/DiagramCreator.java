@@ -25,9 +25,14 @@ public class DiagramCreator {
 	private static int height = 500;
 	private static int widthBig = 800;
 	private static int heightBig = 600;
+	
+	public static String getPath(){
+		return path;
+	}
+
 
 	public static String createClusterSizeBarChart(Cluster[] clusters) {
-
+		try{
 		DefaultCategoryDataset myDataset = new DefaultCategoryDataset();
 		double d;
 		for (int i = 0; i < clusters.length; i++) {
@@ -56,9 +61,15 @@ public class DiagramCreator {
 			}
 		}
 		return filename;
+		}catch(Exception e){
+			
+		}
+		return null;
+		
 	}
 
 	public static String createItemCountPerCluster(Cluster cluster) {
+		try{
 
 		DefaultCategoryDataset myDataset = new DefaultCategoryDataset();
 
@@ -97,9 +108,14 @@ public class DiagramCreator {
 			}
 		}
 		return filename;
+		}catch(Exception e){
+			
+		}
+		return null;
 	}
 
 	public static String createWeekdayPieChart(Cluster cluster) {
+		try{
 
 		DefaultPieDataset myDataset = new DefaultPieDataset();
 		double d;
@@ -131,6 +147,10 @@ public class DiagramCreator {
 			}
 		}
 		return filename;
+		}catch(Exception e){
+			
+		}
+		return null;
 	}
 
 	static public final String saveChartToJPG(final JFreeChart chart, String fileName, final int width,
@@ -145,12 +165,12 @@ public class DiagramCreator {
 	}
 
 	public static String[] masterCreate(Cluster[] clusters) {
-		// Pfad überprüfen und ggfs erstellen
+		// Pfad ï¿½berprï¿½fen und ggfs erstellen
 		File file = new File(path);
 		if (!file.exists())
 			file.mkdirs();
 
-		// Alte Charts löschen
+		// Alte Charts lï¿½schen
 		File[] fileArray = file.listFiles();
 		for (int i = 1; i < fileArray.length; i++) {
 			if (fileArray[i].lastModified() < System.currentTimeMillis() - (24*3600*1000))

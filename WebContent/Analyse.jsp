@@ -57,10 +57,6 @@ try{
 	<div style="float:left">
 	
 	<div style="float:left">
-		<!-- 
-	Hier	Hier Kommt irgendwas fÃ¼r die Marketing MaÃnahmen rein
- ganz links neben der Tabelle angezeigt
-	 -->
 	 <label>Marketingmaßnahmen:</label><br>
 	<select name="marketingSelection" multiple="yes">
 	
@@ -85,7 +81,11 @@ try{
 	
 	<div style="float:right">
 	<table border="1">
+<<<<<<< HEAD
 		<!--  Tabelle Ãberschrift   -->
+=======
+		<!--  Tabelle Überschrift   -->
+>>>>>>> branch 'master' of https://github.com/ArchonsSinner/WWA.git
 		<tr >
 			<td>Attribut</td>
 			<%

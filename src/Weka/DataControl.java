@@ -95,7 +95,7 @@ public class DataControl extends HttpServlet{
             fileArray = path.listFiles();
         }
 
-        response.sendRedirect("StartAnalysis");
+        response.sendRedirect("DataControl");
 	} catch (Exception e) {
 		out.println("Es ist ein Fehler aufgetreten. Wenn der Fehler erneut auftritt, kontaktieren Sie bitte Ihren Administrator!");
 	}
@@ -105,35 +105,55 @@ public class DataControl extends HttpServlet{
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         
-	try {
+	    try {
 	    
-	HttpSession session = request.getSession();
+	    HttpSession session = request.getSession();
         if (session.getAttribute("uname")==null){
             response.sendRedirect("Login");
         }
 
-        out.println("<table align='left'>" +
-                "<tr>") ;
+        //HTML Head
+        out.print(  "<html>"+
+                        "<head>"+
+                            "<link rel='stylesheet' href='bulma.css'>"+
+                            "<meta charset='utf-8'/>"+
+                            "<title>Weka Web App</title>"+
+                            "<nav class='nav' style='background-color: #BDBDBD'>"+
+                                "<div class='nav-left'>"+
+                                    "<a class='nav-item'>"+
+                                        "<img src='logo.png' alt='KD logo'>"+
+                                    "</a>"+
+                                "</div>"+
+                            "</nav>"+
+                        "</head>");
+
+        //HTML Upload select
+        out.print(  "<body>"+
+                        "<div class='columns' style='margin-top: 15px'>"+
+                            "<div class='column is-1'>"+
+                            "</div>"+
+                            "<div class='column is-3'>"+
+                                "<aside class='menu'>"+
+                                    "<p class='menu-label'>"+
+                                        "Datei Hochladen"+
+                                    "</p>"+
+                                    "<ul class='menu-list'>"+
+                                        "<form action='DataControl' method='post' enctype='multipart/form-data'>"+
+                                            "<input type='file' accept='.csv' name='file' size='50'>"+
+                                            "</br>"+
+                                            "</br>"+
+                                            "<input type='submit' class='button is-info' value='Upload File'>"+
+                                        "</form>"+
+                                    "</ul>");
         
+        //HTML Upload Error
         if(request.getParameter("fileError")!=null){
-        	out.println("<td><font color = RED>Datei ist fehlerhaft</font></td>"
-        			+ "</tr>"
-        			+ "<tr>");
+        	out.print   ("<div class='notification is-danger'>"+
+                            "Datei ist Fehlerhaft! Upload abgebrochen."+
+                        "</div>");
         	request.removeAttribute("fileError");
         }
-        out.println(
-                "   <form action = 'DataControl' method = 'post' enctype = 'multipart/form-data'>" +
-                "       <td><input type = 'file' accept= '.csv' name = 'file' size = '50' /></td>" +
-                "           </tr><tr>" +
-                "       <td><input type = 'submit' value = 'Upload File' /></td" +
-                "   </form>" +
-                "</tr>" +
-                "</table>");
 
-       
-        
-        
-        
         //Set directory to search files
            
         
@@ -145,20 +165,35 @@ public class DataControl extends HttpServlet{
         if(!path.exists())
         	path.mkdirs();
         
-        
-        
+        //HTML prepare output filenames
+        out.print(  "</div>"+
+                        "<div class='column is-3'>"+
+                            "<aside class='menu'>"+
+                                "<p class='menu-label'>"+
+                                    "Datei auswählen"+
+                                "</p>"+
+                                "<ul class='menu-list'>");
         
         File[] fileArray = path.listFiles();
-
-        out.println("<table>");
         for (File f: fileArray
              ) {
             String name = f.getName();
             if(name.endsWith(".csv")){
-                out.println("<tr><td><a href='/Weka/StartAnalysis?path=" + uploadPath + File.separator + name + "'>" + name + "</a></td></tr>");
+                //HTML file name output
+                out.print(" <a href='/Weka/StartAnalysis?path=" + uploadPath + File.separator + name + "'>" + name + "</a>");
             }
         }
-        out.println("</table>");
+
+        //HTML end
+        out.print(  "</ul>"+
+                "</aside>"+
+            "</div>"+
+        "<div class='column'>"+
+        "</div>"+
+    "</div>"+
+"</body>"+
+"</html>");
+
 	} catch (Exception e) {
 		out.println("Es ist ein Fehler aufgetreten. Wenn der Fehler erneut auftritt, kontaktieren Sie bitte Ihren Administrator!");
 	}
