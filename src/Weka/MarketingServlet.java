@@ -78,7 +78,7 @@ public class MarketingServlet extends HttpServlet {
 	        out.println("</body>");
 	        out.println("</html>");
 		}
-		else if(fehlerNr.equals("2")){
+		else if(fehlerNr.equals("3")){
 			out.println("<html>");
 	        out.println("<head>");
 			out.println("</head>");

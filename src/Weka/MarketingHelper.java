@@ -97,6 +97,9 @@ public class MarketingHelper {
 					response.sendRedirect("MarketingServlet");
 					//Datei ist nich vorhanden und kann nicht erzeugt werden
 				}
+				else{
+					return true;
+				}
 			}catch(ClassNotFoundException e){
 				HttpSession session = request.getSession();
 				session.setAttribute("errorLevel", "0");
