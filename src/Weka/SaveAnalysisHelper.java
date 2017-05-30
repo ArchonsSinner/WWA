@@ -13,7 +13,7 @@ import java.util.LinkedList;
 public class SaveAnalysisHelper {
 	private static String path = System.getProperty("user.dir") + File.separator + "WWA" + File.separator
 			+ "savedAnalysis";
-	private static String filename = "savedAnalysis.ana";
+	private static String filename = File.separator + "savedAnalysis.ana";
 	private static LinkedList<String> filenameOrder;
 
 	public SaveAnalysisHelper() {
@@ -28,6 +28,7 @@ public class SaveAnalysisHelper {
 		}
 		try {
 			file = new File(path + filename);
+			System.out.println(path+filename);
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
 			map = (HashMap<String, Integer>) ois.readObject();
 			ois.close();

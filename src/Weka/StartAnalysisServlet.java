@@ -110,6 +110,7 @@ public class StartAnalysisServlet extends HttpServlet {
 				response.sendRedirect("DataControl");
 				return;
 			}
+			SaveAnalysisHelper.addToMap(path, Clusteranzahl);
 			//Weka
 			if(new File(path).exists()){
 				WekaClusterer.setNumClusters(Clusteranzahl);
