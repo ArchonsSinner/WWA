@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 /**
  * Servlet implementation class StartAnalysis
@@ -97,14 +98,18 @@ public class StartAnalysisServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{
+			System.out.println("ich laufe");
 		//Clusteranzahl
 		int Clusteranzahl = 5;
 		//Clusteranzahl  wird beim aufrufen als Parameter angegeben
 		//wenn nicht  dann standardwert 5
+
+		HttpSession session = request.getSession();
+		if (session.getAttribute("Clusteranzahl")!=null)
+			Clusteranzahl = Integer.parseInt((String)session.getAttribute("Clusteranzahl"));
+
 		if (request.getParameter("Clusteranzahl")!=null)
 			Clusteranzahl = Integer.parseInt(request.getParameter("Clusteranzahl"));
-		
-		HttpSession session = request.getSession();
 		if(session.getAttribute("uname") == null)
 			response.sendRedirect("Login");
 		if(request.getParameter("file")!=null)
