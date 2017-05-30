@@ -22,9 +22,11 @@ public class old_helper extends HttpServlet {
         if (request.getParameter("path")!= null && request.getParameter("clust")!= null){
             session.setAttribute("file", request.getParameter("path"));
             session.setAttribute("Clusteranzahl", request.getParameter("clust"));
-            request.setAttribute("", "");
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/StartServlet");
-            dispatcher.forward(request, response);
+            out.print("<link rel='stylesheet' href='bulma.css'>" +
+                    "<p>Lade " + request.getParameter("path") + " mit " + request.getParameter("clust") + " Clustern?</p>" +
+                    "<form action='/StartServlet' methode='post'>" +
+                    "<input type='submit' class='button is-info' value='Weiter'>" +
+                    "</form>");
         } else {
             response.sendRedirect("Login");
         }
