@@ -164,6 +164,7 @@ public class DataControl extends HttpServlet{
             if(!path.exists())
                 path.mkdirs();
 
+           
             //HTML prepare output filenames
             out.print(  "</div>"+
                     "<div class='column is-3'>"+
@@ -185,12 +186,12 @@ public class DataControl extends HttpServlet{
 
             //Load Data from saved analysis
             SaveAnalysisHelper helper = new SaveAnalysisHelper();
-            HashMap <String, Integer> map = helper.getMap();
+            HashMap<String, Integer> map = helper.getMap();
 
             Set<String> old_filenames_tmp = map.keySet();
             String old_filenames[] = old_filenames_tmp.toArray(new String[old_filenames_tmp.size()]);
-            int old_num_cluster[] = new int[map.size()];
-            for(int i=0; i<map.size(); i++){
+            int old_num_cluster[] = new int[5];
+            for(int i=0; i<5; i++){
                 old_num_cluster[i] = map.get(old_filenames[i]);
             }
 
@@ -202,50 +203,22 @@ public class DataControl extends HttpServlet{
                     "<aside class='menu'>"+
                     "<p class='menu-label'>"+
                     "Vorherige Analysen"+
-                    "</p>"+
-                    "<ul class='menu-list'>" +
-                    "<select name='last' size='5' id='selection'>");
+                    "</p>");
 
             for(int i=0; i<map.size(); i++){
-                out.print("<option>" + old_filenames[i] + " Cluster: " + old_num_cluster[i] + "</option>");
+                out.print("<a href='old_helper?clust=" + old_num_cluster[i] + "&path=" + uploadPath + File.separator + old_filenames[i] + "'>" + old_filenames[i] + " Cluster: " + old_num_cluster[i] + "</a><br>");
             }
 
             if (map.size()==0){
-                out.print("<option disabled>Keine Verfügbar</option>");
+                out.print("Keine Verfügbar");
             }
 
-            out.print("</select><br><br>");
-            if(map.size()==0){
-            } else {
-                out.print("<button onclick='setFile()' class='button is-info'>Auswählen</button>");
-            }
-
-            out.print("<form action='StartAnalysisServlet' method='post'>" +
-                    "<input type='hidden' id='Clusteranzahl' name='Clusteranzahl'>" +
-                    "<input type='hidden' id='file' name='file'>" +
-                    "</form>" +
-
-                    "<script type='text/javascript'>" +
-                    "function setFile() {" +
-                    //Get values of selection
-                    "var e = document.getElementById('selection');" +
-                    "var strUser = e.options[e.selectedIndex].text;" +
-                    "var array = strUser.split(' ');" +
-                    //Set post value clusteranzahl and filepath
-                    "var element = document.getElementById('Clusteranzahl');" +
-                    "element.value = array[2];" +
-                    "var element = document.getElementById('file');" +
-                    "element.value = '" + uploadPath + File.separator + "'.concat(array[0]);" +
-                    "element.form.submit();" +
-                    "}" +
-                    "</script>" +
-
-                    "</ul></aside>"+
+            out.print("</ul></aside>"+
                     "</div>"+
                     "</div>"+
                     "</body>"+
                     "</html>");
-
+            
         } catch (Exception e) {
             response.sendRedirect("Error.html");
         }

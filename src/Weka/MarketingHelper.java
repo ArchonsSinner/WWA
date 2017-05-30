@@ -168,6 +168,29 @@ public class MarketingHelper {
 			return options;
 		}
 	}
+
+	public boolean deleteValue(String value) throws FileNotFoundException, IOException, ClassNotFoundException{
+		if(setFile.exists()){
+			if(loadSet()){
+				if(marketingSet.contains(value)){
+					if(marketingSet.remove(value)){
+						if(saveSet())
+							return true;
+						else
+							return true;
+					}
+					else
+						return false;
+				}
+				else
+					return false;
+			}
+			else
+				return false;
+		}
+		else
+			return false;
+	}
 }
 
 
