@@ -82,11 +82,7 @@ try{
 	
 	<div style="float:right">
 	<table border="1">
-<<<<<<< HEAD
 		<!--  Tabelle Ãberschrift   -->
-=======
-		<!--  Tabelle Überschrift   -->
->>>>>>> branch 'master' of https://github.com/ArchonsSinner/WWA.git
 		<tr >
 			<td>Attribut</td>
 			<%
@@ -129,13 +125,12 @@ try{
 		if (activeCluster > 0) {
 
 	%>
-	
-	<img src="<%=chartsFilenames[(activeCluster * 2) - 1]%>">
-	<img src="<%=chartsFilenames[activeCluster * 2]%>">
+	<img src="ImageServlet?imagepath=<%=chartsFilenames[(activeCluster * 2) - 1]%>">
+	<img src="ImageServlet?imagepath=<%=chartsFilenames[activeCluster * 2]%>">
 	<%
 		} else {
 	%>
-	<img src="<%=chartsFilenames[0]%>">
+	<img src="ImageServlet?imagepath=<%=chartsFilenames[0]%>">
 	<%
 		}
 	%>
