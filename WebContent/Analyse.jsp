@@ -73,15 +73,6 @@ try{
 	<%MarketingHelper helper = new MarketingHelper(request,response); %>
 	<%= helper.genOptions() %>
 	</select>
-<%-- 	<%
-	Set<String> marketingSet = MarketingHelper.getSet();
-	if(!marketingSet.isEmpty()){
-		%><select name="marketingSelection" multiple="yes"><%
-		for(String s: marketinSet){
-			%><option><% s %></option>"<%
-		}
-	}
-	%> --%>
 	
 	<form action="MarketingServlet" method="post">
 	<input type="text" name="marketingAction">
