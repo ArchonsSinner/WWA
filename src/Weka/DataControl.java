@@ -191,7 +191,7 @@ public class DataControl extends HttpServlet{
             Set<String> old_filenames_tmp = map.keySet();
             String old_filenames[] = old_filenames_tmp.toArray(new String[old_filenames_tmp.size()]);
             int old_num_cluster[] = new int[5];
-            for(int i=0; i<5; i++){
+            for(int i=0; i<map.size(); i++){
                 old_num_cluster[i] = map.get(old_filenames[i]);
             }
 
