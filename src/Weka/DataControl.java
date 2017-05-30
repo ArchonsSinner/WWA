@@ -206,7 +206,7 @@ public class DataControl extends HttpServlet{
                     "</p>");
 
             for(int i=0; i<map.size(); i++){
-                out.print("<a href='old_helper?clust=" + old_num_cluster[i] + "&path=" + uploadPath + File.separator + old_filenames[i] + "'>" + old_filenames[i] + " Cluster: " + old_num_cluster[i] + "</a><br>");
+                out.print("<a href='/Weka/old_helper?clust=" + old_num_cluster[i] + "&path=" + uploadPath + File.separator + old_filenames[i] + "'>" + old_filenames[i] + " Cluster: " + old_num_cluster[i] + "</a><br>");
             }
 
             if (map.size()==0){
