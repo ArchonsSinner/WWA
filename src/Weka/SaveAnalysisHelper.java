@@ -9,6 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Set;
 
 public class SaveAnalysisHelper {
 	private static String path = System.getProperty("user.dir") + File.separator + "WWA" + File.separator
@@ -28,10 +29,18 @@ public class SaveAnalysisHelper {
 		}
 		try {
 			file = new File(path + filename);
-			System.out.println(path+filename);
+			//System.out.println(path+filename);
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
 			map = (HashMap<String, Integer>) ois.readObject();
 			ois.close();
+			Set<String> keys=map.keySet();
+			File datei;
+			for(String s : keys){
+				datei = new File(s);
+				if(!datei.exists())
+					map.remove(s);
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			map = new HashMap<String, Integer>();
@@ -84,6 +93,11 @@ public class SaveAnalysisHelper {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	public static void main(String[] args){
+		System.out.println(SaveAnalysisHelper.getMap());
 	}
 
 }
