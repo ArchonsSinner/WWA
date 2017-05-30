@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="Weka.Cluster,Weka.DiagramCreator,Weka.WekaClusterer"%>
+<%@ page import="Weka.MarketingHelper" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -60,7 +61,7 @@ try{
 	 <label>Marketingmaßnahmen:</label><br>
 	<select name="marketingSelection" multiple="yes">
 	
-	<%MarketingHelper helper = new MarketingHelper(request,response) %>
+	<%MarketingHelper helper = new MarketingHelper(request,response); %>
 	<%= helper.genOptions() %>
 	</select>
 <%-- 	<%

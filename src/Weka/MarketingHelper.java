@@ -39,7 +39,7 @@ public class MarketingHelper {
 					//Datei konnte nich gespeichert werden
 					HttpSession session = request.getSession();
 					session.setAttribute("errorLevel", "2");
-					response.sendRedirect("MarketingHelper");
+					response.sendRedirect("MarketingServlet");
 					return false;
 				}
 			}
@@ -49,7 +49,7 @@ public class MarketingHelper {
 		else{
 			HttpSession session = request.getSession();
 			session.setAttribute("errorLevel", "3");
-			response.sendRedirect("MarketingHelper");
+			response.sendRedirect("MarketingServlet");
 			//Set konnte nicht geladen werden
 			return false;
 		}
@@ -76,7 +76,7 @@ public class MarketingHelper {
 				HttpSession session = request.getSession();
 				session.setAttribute("errorLevel", "2");
 				session.setAttribute("errorFile", directory.getPath());
-				response.sendRedirect("MarketingHelper");
+				response.sendRedirect("MarketingServlet");
 				return false;
 				//Verzeichnis kann nicht erstellt werden
 			}
@@ -94,17 +94,17 @@ public class MarketingHelper {
 					HttpSession session = request.getSession();
 					session.setAttribute("errorLevel", 1);
 					session.setAttribute("errorFile", setFile.getPath());
-					response.sendRedirect("MarketingHelper");
+					response.sendRedirect("MarketingServlet");
 					//Datei ist nich vorhanden und kann nicht erzeugt werden
 				}
 			}catch(ClassNotFoundException e){
 				HttpSession session = request.getSession();
 				session.setAttribute("errorLevel", "0");
-				response.sendRedirect("MarketingHelper");
+				response.sendRedirect("MarketingServlet");
 			}catch(IOException e){
 				HttpSession session = request.getSession();
 				session.setAttribute("errorLevel", "0");
-				response.sendRedirect("MarketingHelper");
+				response.sendRedirect("MarketingServlet");
 			}
 		}
 		else{
@@ -122,7 +122,7 @@ public class MarketingHelper {
 				HttpSession session = request.getSession();
 				session.setAttribute("errorLevel", "2");
 				session.setAttribute("errorFile", directory.getPath());
-				response.sendRedirect("MarketingHelper");
+				response.sendRedirect("MarketingServlet");
 				return false;
 				//Verzeichnis kann nicht erstellt werden
 			}
@@ -139,7 +139,7 @@ public class MarketingHelper {
 				HttpSession session = request.getSession();
 				session.setAttribute("errorLevel", "2");
 				session.setAttribute("errorFile", directory.getPath());
-				response.sendRedirect("MarketingHelper");
+				response.sendRedirect("MarketingServlet");
 				return false;
 				//Es kann nicht in das Verzeichnis geschrieben werden
 			}
@@ -160,7 +160,7 @@ public class MarketingHelper {
 		else{
 			HttpSession session = request.getSession();
 			session.setAttribute("errorLevel", "3");
-			response.sendRedirect("MarketingHelper");
+			response.sendRedirect("MarketingServlet");
 			//Set konnte nicht geholt werden
 			return options;
 		}
