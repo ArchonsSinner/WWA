@@ -119,8 +119,8 @@ public class DataControl extends HttpServlet{
                     "<title>Weka Web App</title>"+
                     "<nav class='nav' style='background-color: #BDBDBD'>"+
                     "<div class='nav-left'>"+
-                    "<a class='nav-item'>"+
-                    "<img src='logo.png' alt='KD logo'>"+
+                    "<a href='DataControl' class='nav-item'>"+
+                    "<img src='Images/logo.gif' alt='KD logo'>"+
                     "</a>"+
                     "</div>"+
                     "</nav>"+
