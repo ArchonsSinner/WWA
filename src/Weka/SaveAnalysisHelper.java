@@ -8,24 +8,29 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class SaveAnalysisHelper {
 	private static String path = System.getProperty("user.dir") + File.separator + "WWA" + File.separator
 			+ "savedAnalysis";
 	private static String filename = "savedAnalysis.ana";
+	private static LinkedList<String> filenameOrder;
+
 	public SaveAnalysisHelper() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public static HashMap<String,Integer> getMap() {
+	public static HashMap<String, Integer> getMap() {
 		HashMap<String, Integer> map = null;
 		File file = new File(path);
 		if (!file.exists()) {
 			file.mkdirs();
 		}
 		try {
-			file = new File(path+filename);
-			map = (HashMap<String, Integer>) new ObjectInputStream(new FileInputStream(file)).readObject();
+			file = new File(path + filename);
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+			map = (HashMap<String, Integer>) ois.readObject();
+			ois.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 			map = new HashMap<String, Integer>();
@@ -34,16 +39,47 @@ public class SaveAnalysisHelper {
 
 	}
 
-	public static void setMap(HashMap map) {
-		File file = new File(path);
-		if (!file.exists()) {
-			file.mkdirs();
+	private static LinkedList<String> getOrderList(){
+		LinkedList<String> ll;
+		try {
+			File file = new File(path + filename);
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+			ois.readObject();
+			ll = (LinkedList<String>) ois.readObject();
+			ois.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			ll = new LinkedList<String>();
 		}
 		
+		return ll;
+	}
+	public static void addToMap(String key, int n) {
+		HashMap<String, Integer> map = getMap();	// map laden
+		filenameOrder = getOrderList();
+		if (!filenameOrder.contains(key)) {			// Wenn key/Dateiname noch nicht vorhanden
+			filenameOrder.add(key);					// Neuen key zu reihenfolge hinzufügen
+			if (map.size() >= 5)					// Wenn zu viele Einträge
+				map.remove(filenameOrder.removeFirst());// den als erstes hinzugefügten Wert aus beiden listen löschen
+			map.put(key, n);						// Neuen Eintrag in HashMap
+			try {
+				File file = new File(path + filename);// File zum  speichern erstellen
+				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+				oos.writeObject(map);	//Map schreiben
+				oos.writeObject(filenameOrder);//Liste(Reihenfolge) schreiben
+				oos.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	public static void clearList(){
 		try {
-
-			file = new File(path+filename);
-			new ObjectOutputStream(new FileOutputStream(file)).writeObject(map);
+			File file = new File(path + filename);// File zum  speichern erstellen
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+			oos.writeObject(new HashMap<String,Integer>());	//Map schreiben
+			oos.writeObject(new LinkedList<String>());//Liste(Reihenfolge) schreiben
+			oos.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
