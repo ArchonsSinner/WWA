@@ -95,7 +95,7 @@ public class DataControl extends HttpServlet{
             fileArray = path.listFiles();
         }
 
-        response.sendRedirect("StartAnalysis");
+        response.sendRedirect("DataUpload");
 	} catch (Exception e) {
 		out.println("Es ist ein Fehler aufgetreten. Wenn der Fehler erneut auftritt, kontaktieren Sie bitte Ihren Administrator!");
 	}
