@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel='stylesheet' href='bulma.css'>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Analyse</title>
 </head>
@@ -38,6 +39,14 @@ try{
 	
 		
 	%>
+	<nav class='nav' style='background-color: #BDBDBD'>
+                                <div class='nav-left'>
+                                    <a href="DataControl" class='nav-item'>
+                                        <img src='Images/logo.gif' alt='KD logo'>
+                                    </a>
+                                </div>
+                           </nav>
+	
 <div style="float:up">
 <a href="Analyse.jsp">Gesamt</a>
 			<%

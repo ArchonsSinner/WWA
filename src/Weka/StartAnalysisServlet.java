@@ -46,11 +46,19 @@ public class StartAnalysisServlet extends HttpServlet {
         out.println("<head>");
         
         //Script mit funktion einbinden
-        out.println("<script src='js/loadingScreen.js'></script>");
+        out.println("<script src='js/loadingScreen.js'></script>"+
+                "<link rel='stylesheet' href='bulma.css'>");
         out.println("</head>");
         out.println("<body>");
         
-        out.println("<table align='left'>" +
+        out.println("<nav class='nav' style='background-color: #BDBDBD'>"+
+                "<div class='nav-left'>"+
+                "<a href='DataControl' class='nav-item'>"+
+                    "<img src='Images/logo.gif' alt='KD logo'>"+
+                "</a>"+
+            "</div>"+
+        "</nav>"+
+            "<table align='left'>" +
                 "<tr>" +
                 "   <form action = 'StartAnalysis' method = 'post'>" +
                 "		<td><select name=\"Clusteranzahl\">" +
