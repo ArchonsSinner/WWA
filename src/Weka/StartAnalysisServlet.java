@@ -58,9 +58,12 @@ public class StartAnalysisServlet extends HttpServlet {
                 "</a>"+
             "</div>"+
         "</nav>"+
-            "<table align='left'>" +
+        "<br><br>&nbsp&nbspWählen Sie die Anzahl der zu erstellenden Cluster aus<br><br>" +
+        
+            "<table style='width:300px'>" +
                 "<tr>" +
-                "   <form action = 'StartAnalysis' method = 'post'>" +
+                "   <form action = 'StartAnalysis' method = 'post'>"+ 
+                "		<td> &nbsp&nbsp  </td>" +
                 "		<td><select name=\"Clusteranzahl\">" +
                 "			<option value=\"1\" selected>1</option>"+
                 "			<option value=\"2\">2</option>" +
