@@ -227,7 +227,7 @@ public class DataControl extends HttpServlet{
 
                     "<p id='test'></p>" +
 
-                    "<script>" +
+                    "<script type='text/javascript'>" +
                     "function setFile() {" +
                     //Get values of selection
                     "var e = document.getElementById('selection');" +
